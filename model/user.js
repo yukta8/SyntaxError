@@ -11,10 +11,9 @@ var User = new Schema({
         type: String,
         required: true
     },
-   username:{
+   name:{
        type:String,
        required : true,
-       unique: true
    }
 })
 User.plugin(passportLocalMongoose);
