@@ -1,0 +1,117 @@
+main{
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    height: 100vh;
+    /* background-image: url(AuthBg.jpg); */
+    background-color: #bdcbf9;
+}
+
+.container{
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    /* height: 175px; */
+    font-size: 60px;
+    /* padding-top: 5vh; */
+  }
+
+  .login-box{
+background-color:#96B8FA;
+    min-height: fit-content;
+    margin-left: 8rem;
+    padding: 2rem;
+    width: 30%;
+    box-sizing: border-box;
+    border: 2px solid white;
+    border-radius: 2rem;
+  }
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  form input {
+    background-color: white;
+    border-radius: 0.5rem;
+    width: 80%;
+    height: 3rem;
+    margin: 0.5rem;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    border: transparent;
+    /* font-weight: bold; */
+    font-size: 1rem;
+  }
+  p{
+    display: inline-block;
+  }
+  
+.google-auth{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem ;
+    margin: 1rem;
+    border-radius: 0.7rem;
+    border: transparent;
+    color: #2d5cbb;
+    font-size: 1rem;
+}
+
+  .submit {
+    font-weight: 700;
+    border: transparent;
+    color: rgb(255, 255, 255);
+    background-color: #0D43AA;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    width: 80%;
+    height: 3rem;
+    margin: 0.5rem 0 0.5rem 0;
+    text-align: center;
+    
+  }
+
+  .submit:hover {
+    cursor: pointer;
+    /* background-color: rgb(212, 83, 224); */
+  }
+  .signup, .signin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  .signup p, .signin p {
+    /* margin-right: 5px; */
+    font-size: 20px;
+    font-size: 1.5rem;
+    color: rgb(255, 255, 255);
+  }
+  /* .backhome{
+  display: flex;
+  justify-content: center;
+  } */
+  .home{
+    height: 1.5rem;
+    width: 5%;
+    position: absolute;
+    top: 2vh;
+    right: 2vw;
+    font-size: 1rem;
+  }
+  .home a{
+    text-decoration: none;
+  }
+  .home:hover{
+  
+  }
+  
+  .animated{
+    position: relative;
+font-size: 3rem;
+    }
