@@ -14,8 +14,7 @@ var User = new Schema({
    username:{
        type:String,
        required : true,
-       unique: true
    }
 })
-userSchema.plugin(passportLocalMongoose);
+User.plugin(passportLocalMongoose);
 module.exports = mongoose.model("User", User);
