@@ -1,7 +1,9 @@
 const axios = require("axios");
+const dotenv = require("dotenv");
+dotenv.config();
 
 const ytController = async (req, res) => {
-  const apiKey = "AIzaSyBsbsm-C68Ju6NKBSJFLGc4MdXpjcp1L_c";
+  const apiKey = process.env.API_KEY;
   const searchQuery = req.params.name;
   const maxResults = 3;
   const videoDuration = "medium";
