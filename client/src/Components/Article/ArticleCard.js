@@ -1,8 +1,10 @@
 import React from "react";
 import "./arti.css";
+import { NavLink } from "react-router-dom";
 
 const ArticleCard = ({ data }) => {
   return (
+    <NavLink to={data.link}>
     <div className="ecard">
       <div className="ecard-group-name">{data.group}</div>
       <div className="ecard-title">{data.title}</div>
@@ -16,6 +18,7 @@ const ArticleCard = ({ data }) => {
         </div>
       </div>
     </div>
+    </NavLink>
   );
 };
 

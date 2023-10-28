@@ -8,6 +8,7 @@
     transition: all 0.3s ease;
     cursor: pointer;
     height: 40vh;
+    text-decoration: none;
 }
 
 .ecard:hover {
