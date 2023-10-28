@@ -1,0 +1,45 @@
+import React, { useState } from "react";
+import { ReviewModal } from "./ReviewModal";
+import { Button } from "@mui/material";
+const ReviewCard = ({ review }) => {
+  const [LiveEventModalOpen, setLiveEventModal] = useState(false);
+
+  const openModal = () => {
+    setLiveEventModal(true);
+  };
+  const closeModal = () => {
+    setLiveEventModal(false);
+  };
+  
+    const {id,Name,Msg,Category}=review
+        return (
+          <article key={id} className="review-card">
+            <div className="profile">{Name.slice(0, 1)}</div>
+            <div className="review-msg-box">
+              <header>
+                <h4>{Name} </h4>
+              </header>
+              <div className="message">
+                {Msg.slice(0, 50)} {Msg.length <= 50 ? "" : `...`}
+                {Msg.length <= 50 ? (
+                  ""
+                ) : (
+                  <button className="read-more" Active={"active"} onClick={openModal}>
+                    Read more
+                  </button>
+                )}
+              </div>
+              <ReviewModal
+                open={LiveEventModalOpen}
+                close={closeModal}
+                key={review.id}
+                menuItem={review}
+              />
+            </div>
+          </article>
+        
+   
+  );
+};
+
+export default ReviewCard;
