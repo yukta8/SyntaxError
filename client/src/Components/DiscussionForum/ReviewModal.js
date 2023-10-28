@@ -2,14 +2,13 @@ import React, { useState } from "react";
 import { Modal, Box, Backdrop } from "@mui/material";
 
 import styled from "styled-components";
-// import EventImg from "../EventsPage/EventImg.png";
 
 import CloseIcon from "@mui/icons-material/Close";
 
 export function ReviewModal(
-  { open, close, menuItem }
+  { open, close, review }
   ) {
-    const { id, Category, Msg, Name } = menuItem;
+    const { id, Category, Msg, Name } = review;
 
 
   return (
@@ -63,7 +62,6 @@ export function ReviewModal(
             </DateDiv>
           </Header>
           <Description>
-            {/* <ImageDiv src={EventImg}></ImageDiv> */}
             <TextDiv>{Msg}</TextDiv>
           </Description>
         </Box>
@@ -74,11 +72,11 @@ export function ReviewModal(
 
 const Header = styled.div`
   color: #703364;
-  border-bottom: 1px solid #703364;
+  border-bottom: 1px solid blue;
 `;
 const Heading = styled.div`
   display: flex;
-  color: #703364;
+  color: blue;
   font-size: 2rem;
   font-weight: 500;
   margin-bottom: 1rem;
@@ -101,13 +99,6 @@ const Description = styled.div`
   padding: 2rem 2rem;
   @media (max-width: 760px) {
     padding: 3rem 1rem;
-  }
-`;
-const ImageDiv = styled.img`
-  width: 30%;
-  margin: 0 2rem 0 0;
-  @media (max-width: 760px) {
-    width: 40%;
   }
 `;
 

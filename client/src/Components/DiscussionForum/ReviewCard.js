@@ -33,7 +33,7 @@ const ReviewCard = ({ review }) => {
                 open={LiveEventModalOpen}
                 close={closeModal}
                 key={review.id}
-                menuItem={review}
+                review={review}
               />
             </div>
           </article>
