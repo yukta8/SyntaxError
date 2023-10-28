@@ -4,6 +4,7 @@ import ReviewCard from "./ReviewCard";
 import Category from "./Categories";
 import Data from "./Data";
 import "./dashboard.css";
+import { SearchBar } from "./SearchBar/SearchBar";
 
 // const allCategories = new Set(items.map((item)=> item.category))
 const allCategories = ["all", ...new Set(Data.map((item) => item.Category))];
@@ -30,16 +31,15 @@ function Dashboard() {
   return (
     <section className="dashboard-section">
       <div className="section">
-        <div className="discussion-title">
-          <h2>Discussion Forum</h2>
-          <div className="underline"></div>
-        </div>
-        <div className="btn-container">
-      {categories.map((category, index) => {
+        <SearchBar filterItems={filterItems} />
+
+        {/* <div className="btn-container"> */}
+        {/* <List filterItems={filterItems}/> */}
+        {/* {categories.map((category, index) => {
         return (
         <Category category={category} filterItems={filterItems} index={index}/>
-        )})}
-        </div>
+        )})} */}
+        {/* </div> */}
         <div className="reviews-section">
           {reviews.map((review) => {
             return <ReviewCard key={review.id} review={review} />;

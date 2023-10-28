@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ReviewModal } from "./ReviewModal";
+import { ReviewModal } from "./Modal/ReviewModal";
 import { Button } from "@mui/material";
 const ReviewCard = ({ review }) => {
   const [LiveEventModalOpen, setLiveEventModal] = useState(false);
