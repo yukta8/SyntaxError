@@ -5,7 +5,7 @@ dotenv.config();
 const ytController = async (req, res) => {
   const apiKey = process.env.API_KEY;
   const searchQuery = req.params.name;
-  const maxResults = 3;
+  const maxResults = 6;
   const videoDuration = "medium";
   const apiUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=${maxResults}&order=relevance&q=${searchQuery}&type=video&videoDuration=${videoDuration}&key=${apiKey}`;
 
@@ -16,9 +16,11 @@ const ytController = async (req, res) => {
       const videoData = videos.map((video, index) => {
         const videoId = video.id.videoId;
         const videoTitle = video.snippet.title;
+        const videoPng = video.snippet.thumbnails.high.url
         const videoURL = `https://www.youtube.com/watch?v=${videoId}`;
         return {
           title: videoTitle,
+          photo:videoPng,
           link: videoURL,
         };
       });
@@ -34,7 +36,7 @@ const articleController = async (req, res) => {
   const apiKey = process.env.API_KEY;
   const searchEngineId = process.env.Searchengine_id;
   const searchQuery = req.params.name + " article"; 
-  const maxResults = 3;
+  const maxResults = 6;
 
   const apiUrl = `https://www.googleapis.com/customsearch/v1?q=${searchQuery}&key=${apiKey}&cx=${searchEngineId}&num=${maxResults}`;
 

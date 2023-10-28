@@ -1,0 +1,91 @@
+.gcard {
+    display: flex;
+    flex-direction: column;
+    background: rgba(201, 113, 225, 0.1);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    padding: 20px;
+    margin-bottom: 20px;
+    flex: 0 0 calc(33% - 20px);
+    max-width: calc(33% - 20px);
+    width: 100%;
+    transition: .3s;
+    
+}
+
+.gcard:hover {
+    background: rgba(183, 85, 210, 0.4);
+}
+
+.gcard-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gcard-top h2 {
+    font-family: "Outfit";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    color: #572257;
+}
+
+.gcard-mid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.gcard-mid p {
+    font-family: "Outfit";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    color: #f8eef8;
+    height: 200px;
+    overflow-y: scroll;
+}
+
+.gcard-mid p::-webkit-scrollbar {
+    display: none;
+}
+
+.gcard-link {
+    font-family: "Outfit";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #9e83e8;
+}
+
+.gcard-link-flex {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.gcard-link-icon {
+    margin-top: 4px;
+    font-size: 20px;
+    color: #9e83e8;
+}
+
+.gcard-bottom {
+    display: flex;
+    justify-content: flex-start;
+    gap: 12px;
+}
+
+.gcard-bottom a {
+    font-size: 24px;
+    color: white;
+}
+
+/* @media(max-width: 969px){
+.gcard{flex: 0 0 clac(50% - 20px);
+max-width: clac(50% - 20px);}
+} */

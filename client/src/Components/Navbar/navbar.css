@@ -1,0 +1,115 @@
+.nav {
+
+
+    /* .card {
+           
+            background-color: rgba(255, 255, 255, .45);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, .25);
+            box-shadow: 0 0 10px 1px rgba(0, 0, 0, .25);
+            backdrop-filter: blur(15px);
+        }*/
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    background-color: rgba rgb(216 184 184 / 29%);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, .25);
+    backdrop-filter: blur(15px);
+    /* background: #191919; */
+
+    padding: 18px 112px;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.nav img {
+    width: 30px;
+    height: 30px;
+}
+
+
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 32px;
+}
+
+.nav-link {
+    font-family: "Outfit";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 133%;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.nav-acitve {
+    color: #ffffff !important;
+}
+
+button {
+    background: none;
+    font-size: 20px;
+    border: none;
+    color: white;
+}
+
+.menu-icon {
+    display: none;
+}
+
+.nav-btn {
+    padding: 5px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+    display: none;
+
+
+}
+
+@media (max-width:700px) {
+    .nav-btn {
+        display: inline-block;
+    }
+
+    .nav {
+        padding: 18px 15vw;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        background-color: #191919;
+        transition: 1s;
+        transform: translateY(-100vh);
+
+
+    }
+
+    .responsive_nav {
+        transform: none;
+    }
+
+    .nav-close-btn {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+    }
+}
