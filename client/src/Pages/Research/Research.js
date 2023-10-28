@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import PageHeading from "../../Components/PageHeading/PageHeading";
 
@@ -6,9 +6,35 @@ import poc from "../../Assets/aboutus.png";
 import Footer from "../../Components/Footer/Footer";
 import ArticleCard from "../../Components/Article/ArticleCard";
 import './Research.css';
+import axios from "axios";
+import { useParams, useNavigate } from "react-router-dom";
 
 
 const Research = () => {
+  const navigate = useNavigate();
+  const params = useParams();
+  const [research, setResearch] = useState([]);
+  const [par, setPar] = useState("");
+  useEffect(() => {
+    if (params?.q) {
+      setPar(params.q);
+    }
+  }, [params?.q]);
+  useEffect(() => {
+    if (par) {
+      getResearchdata();
+    }
+  }, [par]);
+
+  const getResearchdata = async () => {
+    try {
+      const { data } = await axios.get(`/api/researchLinks/${par}`);
+      setResearch(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+  console.log(research)
   const filter = [
     {
       id: 1,
@@ -25,48 +51,6 @@ const Research = () => {
     {
       id: 4,
       name: "This Month",
-    },
-  ];
-  const eventData = [
-    {
-      id: 1,
-      group: "rate",
-      title: "Dual Nature",
-      date: "15/08/2022",
-      desc: "As the sun slowly set over the horizon, a gentle breeze rustled the leaves of the tall trees in the distance, while a small group of birds chirped merrily on a nearby branch. In the distance, a lone wolf howled at the moon as a small stream trickled its way down the rocky terrain, glistening in the fading light",
-      pocImg: poc,
-      pocName: "website",
-      pocContact: "details",
-    },
-    {
-      id: 2,
-      group: "rate",
-      title: "Dual Nature",
-      date: "17/10/2021",
-      desc: "As the sun slowly set over the horizon, a gentle breeze rustled the leaves of the tall trees in the distance, while a small group of birds chirped merrily on a nearby branch. In the distance, a lone wolf howled at the moon as a small stream trickled its way down the rocky terrain, glistening in the fading light",
-      pocImg: poc,
-      pocName: "website",
-      pocContact: "details",
-    },
-    {
-      id: 3,
-      group: "rate",
-      title: "Dual Nature",
-      date: "17/10/2021",
-      desc: "As the sun slowly set over the horizon, a gentle breeze rustled the leaves of the tall trees in the distance, while a small group of birds chirped merrily on a nearby branch. In the distance, a lone wolf howled at the moon as a small stream trickled its way down the rocky terrain, glistening in the fading light",
-      pocImg: poc,
-      pocName: "webiste",
-      pocContact: "details",
-    },
-    {
-      id: 4,
-      group: "rate",
-      title: "Dual Nature",
-      date: "17/10/2021",
-      desc: "As the sun slowly set over the horizon, a gentle breeze rustled the leaves of the tall trees in the distance, while a small group of birds chirped merrily on a nearby branch. In the distance, a lone wolf howled at the moon as a small stream trickled its way down the rocky terrain, glistening in the fading light",
-      pocImg: poc,
-      pocName: "website",
-      pocContact: "details",
     },
   ];
   return (
@@ -97,7 +81,7 @@ const Research = () => {
          
         </div>
         <div className="card-grid">
-          {eventData.map((event, id) => {
+          {research.map((event, id) => {
             return <ArticleCard key={id} data={event} />;
           })}
         </div>

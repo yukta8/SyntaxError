@@ -20,7 +20,7 @@ function App() {
       <Route path="/search/:q" element={<Twoopt />} />
       <Route path="/yt/:q" element={<Youtube />} />
       <Route path="/article/:q" element={<Article />} />
-       <Route path="/research" element={<Research />} />
+       <Route path="/research/:q" element={<Research />} />
     </Routes>
   );
 }

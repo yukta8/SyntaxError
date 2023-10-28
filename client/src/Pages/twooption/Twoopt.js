@@ -43,7 +43,7 @@ const Twoopt = () => {
       github: "",
       website: "",
       facebook: "",
-      link: `/article/${par}`,
+      link: `/research/${par}`,
     },
   ];
 

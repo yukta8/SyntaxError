@@ -33,7 +33,6 @@ const Article = () => {
       console.error("Error fetching data:", error);
     }
   };
-  console.log(articles)
 
   const filter = [
     {
