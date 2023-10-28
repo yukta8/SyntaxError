@@ -7,10 +7,10 @@ export const Login = () => {
   return (
     <main>
       <div className="login-box">
-      <div class="container">
-        <p class="animated">Login Now</p>
+      <div className="container">
+        <p className="animated">Login Now</p>
       </div>
-      <form method="post" action="/login">
+      <form method="post" action="">
         <input
           type="email"
           id="email"
@@ -23,18 +23,18 @@ export const Login = () => {
           id="password"
           placeholder="Enter password"
         />
-        <button type="submit" id="Submit" class="submit">
+        <button type="submit" id="Submit" className="submit">
           LOGIN
         </button>
         Or login with
-        <button class="google-auth"><FcGoogle/> Google</button>
-        <div class="signin">
+        <button className="google-auth"><FcGoogle/> Google</button>
+        <div className="signin">
           <p>Don't have an Account? &nbsp; </p>
           <Link style={{color:"blue"}} to="/signup"> Sign Up</Link>
         </div>
       </form>
       <div class="backhome">
-        <button class="home">
+        <button className="home">
           <a href="/home">Home</a>
         </button>
       </div>

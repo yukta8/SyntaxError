@@ -13,6 +13,7 @@ export const SignUp = () => {
 
   const handleSignup = async () => {
     try {
+      console.log("hi");
       const response = await axios.post("/auth/register", {
         name,
         email,
@@ -28,8 +29,8 @@ export const SignUp = () => {
   return (
     <main>
       <div className="login-box">
-        <div class="container">
-          <p class="animated"> Sign Up Now!</p>
+        <div className="container">
+          <p className="animated"> Sign Up Now!</p>
         </div>
         <form method="post" action="">
           <input
@@ -69,20 +70,20 @@ export const SignUp = () => {
             placeholder="Confirm password"
             required
           />
-          <button type="submit" id="Submit" class="submit" onClick={handleSignup}>
+          <button type="submit" id="Submit" className="submit" onClick={handleSignup}>
             SIGN UP
           </button>
           Or signup with
-          <button class="google-auth">
+          <button className="google-auth">
             <FcGoogle /> Google
           </button>
-          <div class="signup">
+          <div className="signup">
             <p>Already have an Account? &nbsp;</p>
             <Link to="/login">Login</Link>
           </div>
         </form>
-        <div class="backhome">
-          <button class="home">
+        <div className="backhome">
+          <button className="home">
             <a href="/home">Home</a>
           </button>
         </div>
