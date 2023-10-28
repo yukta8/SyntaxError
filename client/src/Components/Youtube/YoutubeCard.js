@@ -10,13 +10,25 @@ const YoutubeCard = ({ data }) => {
     return null;
   }
   return (
-      <div className="tcard">
+    <div className="tcard">
       <img src={data.photo} alt="STC" className="tcard-img" />
       <div className="tcard-body">
         <div className="tcard-header">
-          <h1 className="tcard-header-title">{data.title.substring(0,25)}..</h1>
-          <Link to={data.link} className="tcard-header-por">{data.link}</Link>
+          <h1 className="tcard-header-title">
+            {data.title.substring(0, 25)}..
+          </h1>
+
+          <Link
+            to={data.link}
+            style={{ textDecoration: "none" }}
+            className="tcard-header-por"
+          >
+            <div>
+              <button id="watch">Watch</button>
+            </div>
+          </Link>
         </div>
+        {/* <div><button id="watch">Watch</button></div> */}
         <div className="tcard-links">
           <a
             href={data.linkedIn}

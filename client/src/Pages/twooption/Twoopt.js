@@ -23,7 +23,7 @@ const Twoopt = () => {
       id: 1,
 
       name: "On surface level",
-      desc: "How do you create compelling presentations that wow your colleagues and impress your managers?How do you create compelling presentations that wow your colleagues and impress your managers?How do you create compelling presentations that wow your colleagues and impress your managers?How do you create compelling presentations that wow your colleagues and impress your managers?",
+      desc: "Opt for surface level learning if you're looking for a swift grasp of the topic. This option provides concise articles and summaries to get you started on your learning journey. It's designed to offer a foundational understanding, making it perfect for those seeking an overview or a quick refresher before diving deeper into the subject matter.",
       notion: "",
       linkedIn: "https://www.linkedin.com/in/rishabh-gupta-35224324b/",
       instagram: "",
@@ -36,7 +36,7 @@ const Twoopt = () => {
       id: 2,
 
       name: "Deep Knowldege",
-      desc: "How do you create compelling presentations that wow your colleagues and impress your managers?How do you create compelling presentations that wow your colleagues and impress your managers?How do you create compelling presentations that wow your colleagues and impress your managers?",
+      desc: "Choose deep level learning for a comprehensive understanding. This option offers in-depth research papers and scholarly articles to help you master the subject. It's tailored for individuals who aspire to explore every facet and gain expertise in the field. Immerse yourself in the depths of knowledge, uncovering intricate details and gaining a profound understanding of the subject matter.",
       notion: "",
       linkedIn: "",
       instagram: "",

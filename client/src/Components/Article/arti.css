@@ -6,16 +6,17 @@
     border-radius: 20px;
     background: #230b54;
     transition: all 0.3s ease;
-    cursor: pointer;
+    
     height: 40vh;
     text-decoration: none;
+   
 }
 
 .ecard:hover {
    
      background-color:  rgb(216 184 184 / 29%);
         box-shadow: 0 0 10px 1px rgba(0, 0, 0, .25);
-        backdrop-filter: blur(15px);;
+        backdrop-filter: blur(15px);
 }
 
 .ecard:hover .ecard-group-name {
@@ -29,7 +30,23 @@
 .ecard:hover .ecard-date {
     color: #444444;
 }
-
+#read{
+    margin-left: 0;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: #230b54;
+    font-size: 17px;
+    cursor: pointer;
+    
+   
+}
+#read:hover{
+    color: #ffffff;
+    background-color: #230b54;
+}
+#btmcard{
+    justify-content: center;
+}
 .ecard:hover .ecard-para {
     color: #1e1e1e;
 }
