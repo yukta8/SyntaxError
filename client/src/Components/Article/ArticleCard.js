@@ -7,7 +7,7 @@ const ArticleCard = ({ data }) => {
       <div className="ecard-group-name">{data.group}</div>
       <div className="ecard-title">{data.title}</div>
       <div className="ecard-date">Date: {data.date}</div>
-      <p className="ecard-para">{data.desc}</p>
+      <p className="ecard-para">{data.link}</p>
       <div className="ecard-btm">
         <img src={data.pocImg} alt="" className="ecard-btm-img"/>
         <div className="ecard-btm-flex">

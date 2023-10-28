@@ -6,13 +6,14 @@ import { AiFillLinkedin } from "react-icons/ai";
 import { AiFillFacebook } from "react-icons/ai";
 import { FaGithubSquare } from "react-icons/fa";
 import { BsGlobe } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 const Optioncard = ({ data }) => {
+  const navigate = useNavigate();
   return (
     <div className="gcard">
       <div className="gcard-top">
         <h2>{data.name}</h2>
-      
       </div>
       <div className="gcard-mid">
         <p>{data.desc}</p>
@@ -22,7 +23,15 @@ const Optioncard = ({ data }) => {
           rel="noreferrer"
           className="gcard-link-flex"
         >
-          <span className="gcard-link">Resources</span>
+          <button
+            className="gcard-link"
+            onClick={(e) => {
+              e.preventDefault();
+              navigate(data.link);  
+            }}
+          >
+            Click Here
+          </button>
           <span className="gcard-link-icon">
             <FiArrowUpRight />
           </span>

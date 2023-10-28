@@ -1,16 +1,18 @@
 import React from "react";
 import "./you.css";
 import { AiOutlineInstagram } from "react-icons/ai";
-import { AiFillLinkedin } from "react-icons/ai";            
+import { AiFillLinkedin } from "react-icons/ai"; 
+import video from "../../Assets/aboutus.png";  
+import { Link } from "react-router-dom";         
 
 const YoutubeCard = ({ data }) => {
   return (
     <div className="tcard">
-      <img src={data.img} alt="STC" className="tcard-img" />
+      <img src={data.photo} alt="STC" className="tcard-img" />
       <div className="tcard-body">
         <div className="tcard-header">
-          <h1 className="tcard-header-title">{data.name}</h1>
-          <h4 className="tcard-header-por">{data.por}</h4>
+          <h1 className="tcard-header-title">{data.title.substring(0,25)}..</h1>
+          <Link to={data.link} className="tcard-header-por">{data.link}</Link>
         </div>
         <div className="tcard-links">
           <a
