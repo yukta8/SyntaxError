@@ -17,10 +17,24 @@ router.get("/login/failed",(req,res)=>{
         message: "Login failed",
     });
 });
-router.get("/google/callback", 
-passport.authenticate("google",{
-    successRedirect: process.env.CLIENT_URL,
-    failureRedirect: '/login/failed',
-}))
+router.get("/google/login/success", (req, res) => {
+  res.status(200).json({
+    error: false,
+    message: "Login success",
+  });
+});
+router.get(
+  "/google/callback",
+  passport.authenticate("google", {
+    successRedirect: "login/success",
+    failureRedirect: "auth/login/failed",
+  }),
+  (req, res) => {
+    // This code block will run after successful Google OAuth authentication
+    console.log("Successful authentication");
+    console.log("Redirecting to /login/success");
+    res.redirect("/login/success"); // Add a manual redirect here
+  }
+);
 router.get('/google',passport.authenticate("google",["profile","email"]))
 module.exports = router;
