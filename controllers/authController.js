@@ -15,7 +15,15 @@ const RegisterController = async (req,res)=>{
             email,
             password,
           });
-          res.send({ user });
+          const token =  jwt.sign(
+            { _id: user._id },
+            process.env.JWT_SECRET,
+            {
+              expiresIn: "1d",
+            }
+          );
+          const sendd = { user, token };
+          res.json(sendd);
         } else {
           res.send('<script>alert("passwords dont match)</script>');
         }
@@ -31,7 +39,14 @@ const LoginController = async function (req, res) {
     if (getuser) {
       const result = req.body.password === getuser.password;
       if (result) {
-        res.send({ getuser });
+        const token = await JWT.sign(
+          { _id: user._id },
+          process.env.JWT_SECRET,
+          {
+            expiresIn: "1d",
+          }
+        );
+        res.send({ getuser: { name: getuser.name, email: getuser.email, password:getuser.password },na });
       }
     } else {
       res.status(400).json({ error: "User doesn't exist" });

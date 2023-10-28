@@ -45,6 +45,16 @@ const createBlogController = async (req, res) => {
 
 const getBlogsController = async (req, res) => {
     const blogs = await Blog.find({})
+      .populate("user")
+      .limit(12)
+      .sort({ createdAt :-1});
+
+    res.status(200).send({
+        success: true,
+        totalCount: blogs.length,
+        message: "All blogs",
+        blogs,
+      });
 };
 
 module.exports = {
