@@ -23,18 +23,18 @@ const Optioncard = ({ data }) => {
           rel="noreferrer"
           className="gcard-link-flex"
         >
-          <button
+          <button id="clicky"
             className="gcard-link"
             onClick={(e) => {
               e.preventDefault();
               navigate(data.link);  
             }}
           >
-            Click Here
-          </button>
-          <span className="gcard-link-icon">
+            Click Here<span className="gcard-link-icon">
             <FiArrowUpRight />
           </span>
+          </button>
+          
         </a>
       </div>
       <div className="gcard-bottom">

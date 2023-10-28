@@ -12,6 +12,14 @@
     transition: .3s;
     
 }
+#clicky{
+    color: rgb(241, 247, 247);
+    margin-left: 0;
+    text-decoration: none;
+}
+#clicky:hover{
+    color: #230b54;
+}
 
 .gcard:hover {
     background: rgba(183, 85, 210, 0.4);

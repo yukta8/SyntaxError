@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import axios from "axios";
+import lback from "../../Assets/logback.jpg";
 
 import "./Login.css";
+import Navbar from "../Navbar/Navbar";
 
 export const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -28,7 +30,14 @@ export const SignUp = () => {
   };
 
   return (
-    <main>
+    <main
+      style={{
+        backgroundImage: `url(${lback})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <Navbar />
       <div className="login-box">
         <div className="container">
           <p className="animated"> Sign Up Now!</p>
@@ -83,11 +92,6 @@ export const SignUp = () => {
             <Link to="/login">Login</Link>
           </div>
         </form>
-        <div className="backhome">
-          <button className="home">
-            <a href="/home">Home</a>
-          </button>
-        </div>
       </div>
     </main>
   );

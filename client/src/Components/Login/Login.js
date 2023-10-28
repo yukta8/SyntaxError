@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import {FcGoogle} from "react-icons/fc"
 import "./Login.css";
 import axios from "axios";
+import lback from "../../Assets/logback.jpg";
+import Navbar from "../Navbar/Navbar";
 
 export const Login = () => {
   const [email,setEmail]= useState("");
@@ -22,7 +24,14 @@ export const Login = () => {
   };
   
   return (
-    <main>
+    <main
+      style={{
+        backgroundImage: `url(${lback})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+    <Navbar/>
       <div className="login-box">
         <div className="container">
           <p className="animated">Login Now</p>
@@ -59,11 +68,7 @@ export const Login = () => {
             </Link>
           </div>
         </form>
-        <div class="backhome">
-          <button className="home">
-            <a href="/home">Home</a>
-          </button>
-        </div>
+        
       </div>
     </main>
   );

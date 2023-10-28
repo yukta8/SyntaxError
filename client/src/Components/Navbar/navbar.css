@@ -41,6 +41,7 @@
     align-items: center;
     justify-content: flex-start;
     gap: 32px;
+    text-decoration: none;
 }
 .nav-links .avtar{
     cursor: pointer;
@@ -60,6 +61,8 @@
     line-height: 133%;
     color: rgb(98 150 253);
     transition: 0.2s;
+    text-decoration: none;
+    list-style: none;
 }
 .nav-link:hover{
    
