@@ -1,4 +1,5 @@
 const axios = require("axios");
+const { getJson } = require("serpapi");
 const dotenv = require("dotenv");
 dotenv.config();
 const natural = require("natural");
@@ -73,7 +74,7 @@ const articleController = async (req, res) => {
           articleData.push(articleNew);
         });
         articleData.sort((a, b) => b.relevance - a.relevance);
-        const top6Articles = articleData.slice(0, 6);
+        const top6Articles = articleData;
         res.json(top6Articles);
       } else {
         console.error("Error fetching article data:", error);
@@ -86,7 +87,52 @@ const articleController = async (req, res) => {
     });
 };
 
+const researchController = async (req, res) => {
+  const engine = "google_scholar";
+  const api_key = process.env.SERP_API_KEY;
+  const searchQuery = req.params.name;
+  try {
+    getJson(
+      {
+        engine: engine,
+        q: searchQuery,
+        api_key: api_key,
+      },
+      (json) => {
+        const researches = json.organic_results;
+        if (researches) {
+          const researchData = [];
+          researches.forEach((research, index) => {
+            const researchTitle = research.title;
+            tfidf.addDocument(researchTitle );
+            const queryTokens = searchQuery.toLowerCase().split(" ");
+            const relevanceScore = tfidf.tfidfs(
+              queryTokens,
+              (i, measure) => measure
+            );
+            const researchLink = research.link;
+            const researchDes = research.snippet;
+            const researchPub = research.publication_info["summary"]
+            const researchNew = {
+              title: researchTitle,
+              link: researchLink,
+              description:researchDes,
+              publication:researchPub,
+              relevance: relevanceScore[0]
+            };
+            researchData.push(researchNew);
+          });
+          researchData.sort((a, b) => b.relevance - a.relevance);
+          const top6Articles = researchData.slice(0, 6);
+          res.json(top6Articles);
+        }
+      }
+    );
+  } catch (error) {}
+};
+
 module.exports = {
   ytController,
   articleController,
+  researchController,
 };
