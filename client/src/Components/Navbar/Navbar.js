@@ -18,12 +18,13 @@ const Navbar = () => {
   };
   return (
     <div className="nav">
-      <Link to="/">
+      <Link to="/" style={ {textDecoration: "none"} }>
         <img src={logo} alt="STC" className="nav-logo" />
       </Link>
       <div className="nav-links" ref={navRef}>
         <Link
           to="/"
+          style={{ textDecoration: "none" }}
           className={
             locator.pathname === "/" ? "nav-link nav-acitve" : "nav-link"
           }
@@ -32,16 +33,17 @@ const Navbar = () => {
         </Link>
 
         <Link
-          to="/"
+          style={{ textDecoration: "none" }}
+          to="/login"
           id="log"
           className={
             locator.pathname === "/login" ? "nav-link nav-acitve" : "nav-link"
           }
-        > 
-        
-          <BiSolidLogInCircle/>
+        >
+          <BiSolidLogInCircle />
         </Link>
         <Link
+          style={{ textDecoration: "none" }}
           to="/Community"
           className={
             locator.pathname === "/community"
@@ -49,14 +51,10 @@ const Navbar = () => {
               : "nav-link"
           }
         >
-          <BsChatSquareHeartFill/>
+          <BsChatSquareHeartFill />
         </Link>
 
-        <Avatar
-          className="avtar"
-          id="basic-button"
-         
-        ></Avatar>
+        <Avatar className="avtar" id="basic-button"></Avatar>
         {/* changes */}
         <button onClick={showNavbar} className="nav-btn nav-close-btn">
           <ImCross />{" "}
