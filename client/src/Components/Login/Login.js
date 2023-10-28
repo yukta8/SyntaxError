@@ -3,18 +3,22 @@ import { Link } from "react-router-dom";
 import {FcGoogle} from "react-icons/fc"
 import "./Login.css";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 export const Login = () => {
   const [email,setEmail]= useState("");
   const [password,setPassword]= useState("");
+  
   const HandleLogin= async(e)=>{
     e.preventDefault();
  try {
+  
       const response = await axios.post("/auth/login", {
         email,
         password,
       });
-      console.log(response.data);
+      // console.log(response.data.token)
+      Cookies.set("authToken", response.data.token, { expires: 70000 });
     } catch (error) {
       console.log(error);
     }

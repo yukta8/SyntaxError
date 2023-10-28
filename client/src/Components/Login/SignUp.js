@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import axios from "axios";
+import Cookies from "js-cookie"; // Import the library
+
 
 import "./Login.css";
 
@@ -10,6 +12,7 @@ export const SignUp = () => {
   const [password, setPassword] = useState("");
   const [cpassword, setCpassword] = useState("");
   const [name, setName] = useState("");
+  const [token,setToken] = useState("");
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -20,12 +23,15 @@ export const SignUp = () => {
         password,
         cpassword,
       });
-      console.log(response.data);
+
+      Cookies.set("authToken", response.data.token, { expires: 70000 });
     } catch (error) {
       console.log(error);
     }
-  console.log(email,password,name);
+
   };
+
+  console.log(token);
   const handleGoogleAuth = ()=>{
     window.location.href=
      "http://localhost:1947/auth/google/callback"

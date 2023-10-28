@@ -14,10 +14,10 @@ const ReviewCard = ({ review }) => {
     const {id,author,content,title}=review
         return (
           <article key={id} className="review-card">
-            <div className="profile">{author.slice(0, 1)}</div>
+            <div className="profile">{author.name.slice(0, 1)}</div>
             <div className="review-msg-box">
               <header>
-                <h4>{author} </h4>
+                <h4>{author.name} </h4>
               </header>
               <div className="message">
                 {content.slice(0, 50)} {content.length <= 50 ? "" : `...`}

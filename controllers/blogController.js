@@ -54,7 +54,7 @@ const getBlogsController = async (req, res) => {
     const blogs = await Blog.find()
       .sort({ timestamp: -1 })
       .skip((page - 1) * perPage)
-      .limit(perPage);
+      .limit(perPage).populate('author', 'name');
 
     res.json(blogs);
   } catch (error) {

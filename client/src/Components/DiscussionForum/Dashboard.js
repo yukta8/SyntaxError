@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { AiOutlineSend } from "react-icons/ai";
-import axios from "axios";
+import api from "../../api/api";
 
 import ReviewCard from "./ReviewCard";
 import Category from "./Categories";
 import Data from "./Data";
 import "./dashboard.css";
 import { SearchBar } from "./SearchBar/SearchBar";
+  import Cookies from "js-cookie"; 
 
 // const allCategories = new Set(items.map((item)=> item.category))
 // const allCategories = ["all", ...new Set(Data.map((item) => item.Category))];
@@ -16,16 +17,24 @@ function Dashboard({ reviewsdata }) {
   const [reviews, setReviews] = useState(reviewsdata);
   // const [categories, setCategories] = useState(allCategories);
   const [reviewText, setReviewText] = useState("");
+  const [heading,setHeading] = useState("")
+  const token = Cookies.get("authToken"); 
+  console.log(token);
 
-  const handleReviewSubmit = async () => {
-    try {
-      // Send a POST request to your backend API
-      const response = await axios.post("/api/community/blog", { text: reviewText });
+  const handleReviewSubmit = async (e) => {
+    e.preventDefault();
+    try { 
+    console.log(heading,reviewText);
+    const config = {
+      headers: {
+        Authorization: `${token}`,
+      },
+    };  
+      const response = await api.post("/create-blog", { title: heading,content:reviewText},config);
 
-      // Handle the response (e.g., show a success message)
       console.log("Review submitted successfully");
+      
 
-      // Clear the input field or reset the state
       setReviewText("");
     } catch (error) {
       // Handle errors (e.g., show an error message)
@@ -65,6 +74,8 @@ function Dashboard({ reviewsdata }) {
             <input
               type="text"
               className="type-topic"
+              value={heading}
+              onChange={(e) => setHeading(e.target.value)}
               placeholder="Enter name of the topic"
               required
             />
