@@ -3,24 +3,32 @@ import { Link } from "react-router-dom";
 import {FcGoogle} from "react-icons/fc"
 import "./Login.css";
 import axios from "axios";
+import Cookies from "js-cookie";
 import lback from "../../Assets/logback.jpg";
 import Navbar from "../Navbar/Navbar";
 
 export const Login = () => {
   const [email,setEmail]= useState("");
   const [password,setPassword]= useState("");
+  
   const HandleLogin= async(e)=>{
     e.preventDefault();
  try {
+  
       const response = await axios.post("/auth/login", {
         email,
         password,
       });
-      console.log(response.data);
+      // console.log(response.data.token)
+      Cookies.set("authToken", response.data.token, { expires: 70000 });
     } catch (error) {
       console.log(error);
     }
   console.log(email,password);
+  };
+  const handleGoogleAuth = ()=>{
+    window.location.href=
+     "http://localhost:1947/auth/google/callback"
   };
   
   return (
@@ -57,7 +65,7 @@ export const Login = () => {
             LOGIN
           </button>
           Or login with
-          <button className="google-auth">
+          <button onClick={handleGoogleAuth} className="google-auth">
             <FcGoogle /> Google
           </button>
           <div className="signin">

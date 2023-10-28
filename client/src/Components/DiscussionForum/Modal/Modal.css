@@ -1,0 +1,44 @@
+.modal-header {
+  color: #703364;
+  border-bottom: 1px solid blue;
+}
+
+.category-heading {
+  display: flex;
+  color: blue;
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 760px) {
+  .category-heading {
+    font-size: 1.6rem;
+  }
+}
+
+.name-div {
+  margin-bottom: 1rem;
+  color: #7b7b7b;
+}
+
+.description {
+  box-sizing: border-box;
+  display: flex;
+  padding: 2rem 2rem;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+@media (max-width: 760px) {
+  .description {
+    padding: 3rem 1rem;
+  }
+}
+
+.review {
+  font-size: 1.2rem;
+  display: flex;
+  color: #ffffff;
+}

@@ -1,0 +1,111 @@
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.dashboard-section {
+  padding: 2rem;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.section {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+
+
+.reviews-section {
+  overflow-y: scroll;
+  /* overflow-y: hidden; */
+  align-self: center;
+  height: 55vh;
+  margin-bottom: 7rem;
+  width: 100%;
+  margin-left: 2rem;
+}
+
+.review-card {
+  display: flex;
+  gap: 1rem 2rem;
+  margin: 2rem;
+}
+
+.profile {
+  box-sizing: border-box;
+  text-transform: capitalize;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: #ffffff;
+  height: 2rem;
+  width: 2rem;
+  background-color: green;
+  border-radius: 50%;
+}
+
+.review-msg-box {
+  max-width: 85%;
+  border: 1px solid black;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.type-box-form {
+  width: 40%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  bottom: 1rem;
+  position: fixed;
+  align-self: flex-end;
+  border: 1px solid black;
+  padding: 0 1rem;
+  border-radius: 1rem;
+}
+
+.type-box-div{
+  width: 90%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+.type-box-form input {
+  height: fit-content;
+  width: 100%;
+  text-align: left;
+}
+
+.type-topic{
+  font-size: 1rem;
+}
+
+.type-review{
+  font-size: 1.5rem;
+}
+
+input:focus {
+  outline: none;
+}
+
+.send {
+  cursor: pointer;
+  width: 2rem;
+}
+
+.read-more {
+  border: none;
+  background-color: transparent;
+  color: #96b8fa;
+  cursor: pointer;
+}
