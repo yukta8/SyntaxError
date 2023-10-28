@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import PageHeading from "../../Components/PageHeading/PageHeading";
-
+import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import video from "../../Assets/aboutus.png";
 
 import './youtube.css';
@@ -69,19 +69,19 @@ const Youtube = () => {
     <>
       <div className="page">
         <Navbar />
-        <div className="heading-section">
-          <PageHeading title="Youtube videos" subTitle="top videos for you" />
-         
+        <div className="heading-section" id="head">
+          <PageHeading title="Youtube videos" subTitle="top videos for you" /> <button>
+          Articles
+          <BsFillArrowRightCircleFill />
+        </button>
         </div>
+       
         <div className="card-grid">
           {teamData.map((video, id) => {
-            
-              return <YoutubeCard key={id} data={video} />;
-            
+            return <YoutubeCard key={id} data={video} />;
           })}
         </div>
       </div>
-     
     </>
   );
 };

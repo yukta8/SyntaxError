@@ -1,7 +1,7 @@
 import React from "react";
 import "./footer.css";
 import arrow from "../../Assets/arrow.svg";
-import bottomGraphic from "../../Assets/back.jpg";
+import bottomGraphic from "../../Assets/footer.gif";
 
 const Footer = () => {
   return (

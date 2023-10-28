@@ -1,9 +1,14 @@
 import React, { useRef, useState } from "react";
 import "./navbar.css";
-import logo from "../../Assets/aboutus.png";
+import logo from "../../Assets/logo1.png";
 import { Link, useLocation } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
+import { NavLink } from "react-router-dom";
+import Avatar from "@mui/material/Avatar";
+import { BiSolidHomeHeart } from "react-icons/bi";
+import { BsChatSquareHeartFill } from "react-icons/bs";
+import {BiSolidLogInCircle} from "react-icons/bi";
 
 const Navbar = () => {
   const locator = useLocation();
@@ -23,32 +28,35 @@ const Navbar = () => {
             locator.pathname === "/" ? "nav-link nav-acitve" : "nav-link"
           }
         >
-          Home
+          <BiSolidHomeHeart />
+        </Link>
+
+        <Link
+          to="/"
+          id="log"
+          className={
+            locator.pathname === "/login" ? "nav-link nav-acitve" : "nav-link"
+          }
+        > 
+        
+          <BiSolidLogInCircle/>
         </Link>
         <Link
-          to="/groups"
+          to="/Community"
           className={
-            locator.pathname === "/groups" ? "nav-link nav-acitve" : "nav-link"
+            locator.pathname === "/community"
+              ? "nav-link nav-acitve"
+              : "nav-link"
           }
         >
-          Groups
+          <BsChatSquareHeartFill/>
         </Link>
-        <Link
-          to="/events"
-          className={
-            locator.pathname === "/events" ? "nav-link nav-acitve" : "nav-link"
-          }
-        >
-          Events
-        </Link>
-        <Link
-          to="/team"
-          className={
-            locator.pathname === "/team" ? "nav-link nav-acitve" : "nav-link"
-          }
-        >
-          Team
-        </Link>
+
+        <Avatar
+          className="avtar"
+          id="basic-button"
+         
+        ></Avatar>
         {/* changes */}
         <button onClick={showNavbar} className="nav-btn nav-close-btn">
           <ImCross />{" "}

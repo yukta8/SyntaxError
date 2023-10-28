@@ -8,8 +8,24 @@
   padding: 140px 112px 48px 112px;
   position: relative;
   z-index: 0;
-  background: #dc88f6;
-}
+  /* background: #dc88f6; */
+  background: linear-gradient(-45deg, #013bd5, #e73c7e, #6296fd, #23d5ab);
+  background-size: 400% 400%;
+    animation: gradient 10s ease infinite; 
+  } @keyframes gradient {
+   0% {
+     background-position: 0% 50%;
+   }
+
+   50% {
+     background-position: 100% 50%;
+   }
+
+   100% {
+     background-position: 0% 50%;
+   }
+ }
+
 
 .heading-section {
   display: flex;

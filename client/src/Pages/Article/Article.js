@@ -6,6 +6,7 @@ import poc from "../../Assets/aboutus.png";
 import Footer from "../../Components/Footer/Footer";
 import ArticleCard from "../../Components/Article/ArticleCard";
 import './article.css';
+import { BsFillArrowRightCircleFill } from "react-icons/bs";
 
 const Article = () => {
   const filter = [
@@ -74,6 +75,7 @@ const Article = () => {
         <Navbar />
         <div className="heading-section">
           <PageHeading title="Articles" subTitle="Top articles for you" />
+
           <div className="filter">
             {filter.map((item) => {
               return (
@@ -91,15 +93,19 @@ const Article = () => {
                 </span>
               );
             })}
+            <button>
+              Videos
+              <BsFillArrowRightCircleFill />
+            </button>
           </div>
         </div>
+
         <div className="card-grid">
           {eventData.map((event, id) => {
             return <ArticleCard key={id} data={event} />;
           })}
         </div>
       </div>
-      
     </>
   );
 };

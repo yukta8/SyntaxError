@@ -1,7 +1,7 @@
 .gcard {
     display: flex;
     flex-direction: column;
-    background: rgba(201, 113, 225, 0.1);
+    background: #230b54;
     border-radius: 20px;
     transition: all 0.3s ease;
     padding: 20px;
@@ -29,7 +29,7 @@
     font-weight: 600;
     font-size: 24px;
     line-height: 32px;
-    color: #572257;
+    color: #f7f6f7;
 }
 
 .gcard-mid {
@@ -44,7 +44,7 @@
     font-weight: 400;
     font-size: 18px;
     line-height: 24px;
-    color: #f8eef8;
+    color: #8db2da;
     height: 200px;
     overflow-y: scroll;
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import "./landing.css";
-import background from "../../Assets/back1.jpg";
+import background from "../../Assets/back5.gif";
 import min from "../../Assets/enterprise.gif";
 import { FiSearch } from "react-icons/fi";
 import Navbar from "../../Components/Navbar/Navbar";
@@ -12,7 +12,7 @@ import Article from "../Youtubevideo/Youtube";
 export const LandingPage = () => {
   return (
     <>
-      {/* <div
+      <div
         className="main"
         style={{
           backgroundImage: `url(${background})`,
@@ -35,7 +35,7 @@ export const LandingPage = () => {
           <img src={min} />
         </div>
       </div>
-      <Footer/>   */}
+      <Footer/>   
       {/* <Twoopt
         style={{
           backgroundImage: `url(${background})`,
