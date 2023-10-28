@@ -9,7 +9,7 @@ import Article from "./Pages/Article/Article";
 import Twoopt from "./Pages/twooption/Twoopt";
 import Youtube from "./Pages/Youtubevideo/Youtube";
 import Research from "./Pages/Research/Research";
-import Twoopt from "./Pages/twooption/Twoopt";
+
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
       <Route path="/search/:q" element={<Twoopt />} />
       <Route path="/yt/:q" element={<Youtube />} />
       <Route path="/article/:q" element={<Article />} />
-       <Route path="/" element={<Research />} />
+       <Route path="/research" element={<Research />} />
     </Routes>
   );
 }
