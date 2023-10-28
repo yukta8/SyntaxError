@@ -8,8 +8,10 @@ var User = new Schema({
     unique: true,
   },
   password: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
+    // type: mongoose.Schema.Types.ObjectId,
+    // ref: "User",
+    type: String,
+    required: true,
   },
   name: {
     type: String,

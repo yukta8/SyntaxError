@@ -10,8 +10,11 @@ const authRoutes = require("./routes/authRoutes");
 const blogRoutes = require("./routes/blogRoutes");
 const cors = require("cors");
 var server = express();
+server.use(cors());
+server.use(express.json());
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(express.static("public"));
+server.use(bodyParser.json());
 server.use(
   require("express-session")({
     secret: "my bestf is cool no",
@@ -27,7 +30,6 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-server.use(bodyParser.json());
 
 mongoose.connect(process.env.MONGODB_URL, {
   useNewUrlParser: true,
@@ -41,14 +43,12 @@ db.on("error", (err) => {
   console.error("MongoDB Atlas connection error:", err);
 });
 
-server.use(cors());
-server.use(express.json());
 
 server.use("/api", apiRoutes);
 server.use("/auth", authRoutes);
 server.use("/community", blogRoutes);
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 1947;
 server.listen(port, () => {
   console.log("server listening on port", port);
 });

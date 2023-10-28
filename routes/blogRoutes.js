@@ -4,10 +4,11 @@ const {
   createBlogController,
   searchBlogController,
 } = require("../controllers/blogController");
+const { requireSignIn } = require("../middlewares/authMiddleware");
 
 const router = express.Router();
 
-router.post("/create-blog", createBlogController);
+router.post("/create-blog", requireSignIn, createBlogController);
 router.get("/blog", getBlogsController);
 router.get("/search", searchBlogController);
 

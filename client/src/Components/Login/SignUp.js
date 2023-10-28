@@ -11,9 +11,9 @@ export const SignUp = () => {
   const [cpassword, setCpassword] = useState("");
   const [name, setName] = useState("");
 
-  const handleSignup = async () => {
+  const handleSignup = async (e) => {
+    e.preventDefault();
     try {
-      console.log("hi");
       const response = await axios.post("/auth/register", {
         name,
         email,
@@ -24,6 +24,7 @@ export const SignUp = () => {
     } catch (error) {
       console.log(error);
     }
+  console.log(email,password,name);
   };
 
   return (
@@ -32,7 +33,7 @@ export const SignUp = () => {
         <div className="container">
           <p className="animated"> Sign Up Now!</p>
         </div>
-        <form method="post" action="">
+        <form onSubmit={handleSignup}>
           <input
             type="text"
             id="name"
@@ -70,7 +71,7 @@ export const SignUp = () => {
             placeholder="Confirm password"
             required
           />
-          <button type="submit" id="Submit" className="submit" onClick={handleSignup}>
+          <button type="submit" id="Submit" className="submit">
             SIGN UP
           </button>
           Or signup with

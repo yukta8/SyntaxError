@@ -1,3 +1,4 @@
+require('dotenv').config();
 const User = require("../model/user");
 const jwt = require("jsonwebtoken");
 
@@ -15,12 +16,19 @@ const RegisterController = async (req,res)=>{
             email,
             password,
           });
-          res.send({ user });
+          const token =  jwt.sign(
+            { _id: user._id },
+            process.env.JWT_SECRET,
+            {
+              expiresIn: "1d",
+            }
+          );
+          const sendd = { user, token };
+          res.json(sendd);
         } else {
           res.send('<script>alert("passwords dont match)</script>');
         }
       }
-      console.log(getUser);
     } catch (error) {
       console.log(error);
     }
@@ -31,12 +39,19 @@ const LoginController = async function (req, res) {
     if (getuser) {
       const result = req.body.password === getuser.password;
       if (result) {
-        res.send({ getuser });
+        const token = jwt.sign(
+          { _id: getuser._id },
+          process.env.JWT_SECRET,
+          {
+            expiresIn: "1d",
+          }
+        );
+        const sendd = { getuser, token };
+        res.json(sendd);
       }
     } else {
       res.status(400).json({ error: "User doesn't exist" });
     }
-    console.log(getuser);
   } catch (error) {
     res.status(400).json({ error });
   }
