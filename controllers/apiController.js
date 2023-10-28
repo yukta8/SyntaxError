@@ -30,6 +30,42 @@ const ytController = async (req, res) => {
     });
 };
 
+const articleController = async (req, res) => {
+  const apiKey = process.env.API_KEY;
+  const searchEngineId = process.env.Searchengine_id;
+  const searchQuery = req.params.name + " article"; 
+  const maxResults = 3;
+
+  const apiUrl = `https://www.googleapis.com/customsearch/v1?q=${searchQuery}&key=${apiKey}&cx=${searchEngineId}&num=${maxResults}`;
+
+  axios
+    .get(apiUrl)
+    .then((response) => {
+      const articles = response.data.items;
+      if (articles) {
+        const articleData =[];
+        articles.forEach((article, index) => {
+          const articleTitle = article.title;
+          const articleLink = article.link;
+          const articleNew = {
+            title: articleTitle,
+            link: articleLink,
+          };
+          articleData.push(articleNew);
+        });
+        res.json(articleData)
+      } else {
+        console.error("Error fetching article data:", error);
+        res.status(500).json({ error: "Internal Server Error" });
+      }
+    })
+    .catch((error) => {
+      console.error("Error fetching articles:", error);
+      res.status(500).json({ error: "Internal Server Error" });
+    });
+};
+
 module.exports = {
   ytController,
+  articleController,
 };
