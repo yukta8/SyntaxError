@@ -49,7 +49,7 @@ function Dashboard() {
           <input
             type="text"
             placeholder="Type something...
-            "
+            zz"
           />
           <button type="submit" id="Submit" class="send">
             <AiOutlineSend color="black" />
