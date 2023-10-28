@@ -2,19 +2,21 @@ import React from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import PageHeading from "../../Components/PageHeading/PageHeading";
 import Optioncard from "../../Components/Optioncard/Optioncard";
+import { useParams} from "react-router-dom";
 
-import { FiSearch } from "react-icons/fi";
-import Footer from "../../Components/Footer/Footer";
+// import { FiSearch } from "react-icons/fi";
+// import Footer from "../../Components/Footer/Footer";
 import { useState, useEffect } from "react";
 import "./twoopt.css";
 
 const Twoopt = () => {
-
-
-
-  
-
-
+  const params = useParams();
+  const [par, setPar] = useState("");
+  useEffect(() => {
+    if (params?.q) {
+      setPar(params.q);
+    }
+  }, [params?.q]);
 
   const groupData = [
     {
@@ -28,6 +30,7 @@ const Twoopt = () => {
       github: "",
       website: "",
       facebook: "",
+      link: `/yt/${par}`,
     },
     {
       id: 2,
@@ -40,36 +43,28 @@ const Twoopt = () => {
       github: "",
       website: "",
       facebook: "",
+      link: `/article/${par}`,
     },
   ];
-
 
   /*return <ChildComponent isMediaQueryMatched={isMediaQueryMatched} />;*/
   return (
     <>
       {/* <GroupCard isMediaQueryMatched={isMediaQueryMatched} /> */}
       <div className="page">
-        <Navbar /> 
+        <Navbar />
         <div className="heading-section">
           <PageHeading
             title="What do you want to learn"
             subTitle="choose between two"
           />
-          
         </div>
         <div className="card-grid">
           {groupData.map((group, id) => {
-            return (
-              <Optioncard
-                key={id}
-                data={group}
-               
-              />
-            );
+            return <Optioncard key={id} data={group} />;
           })}
         </div>
       </div>
-     
     </>
   );
 };

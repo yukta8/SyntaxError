@@ -1,0 +1,142 @@
+main {
+  display: flex;
+  align-items: center;
+  /* width: 100vw; */
+  padding: 2rem;
+  height: 100vh;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: #bdcbf9;
+}
+
+.container {
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  /* height: 175px; */
+  font-size: 3rem;
+  /* padding-top: 5vh; */
+}
+
+@media (max-width: 650px) {
+  .container p{
+    font-size: 2.5rem;
+  }
+}
+
+.login-box {
+  background-color: #96b8fa;
+  min-height: fit-content;
+  margin: 0 8rem;
+  padding: 2rem;
+  width: 26rem;
+  box-sizing: border-box;
+  border: 2px solid white;
+  border-radius: 2rem;
+}
+
+@media (max-width: 650px) {
+  .login-box {
+    margin: auto;
+    min-width: 80%;
+    justify-self: center;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+form input {
+  background-color: white;
+  border-radius: 0.5rem;
+  width: 80%;
+  height: 3rem;
+  margin: 0.5rem;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  border: transparent;
+  /* font-weight: bold; */
+  font-size: 1rem;
+}
+p {
+  display: inline-block;
+}
+
+.google-auth {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  margin: 1rem;
+  border-radius: 0.7rem;
+  border: transparent;
+  color: #2d5cbb;
+  font-size: 1rem;
+}
+
+.submit {
+  font-weight: 700;
+  border: transparent;
+  color: rgb(255, 255, 255);
+  background-color: #0d43aa;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  width: 80%;
+  height: 3rem;
+  margin: 0.5rem 0 0.5rem 0;
+  text-align: center;
+}
+
+.submit:hover {
+  cursor: pointer;
+  /* background-color: rgb(212, 83, 224); */
+}
+.signup,
+.signin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.signup p,
+.signin p {
+  /* margin-right: 5px; */
+  font-size: 20px;
+  font-size: 1.5rem;
+  color: rgb(255, 255, 255);
+}
+
+@media (max-width:650px) {
+  .signup p,
+.signin p {
+  font-size: 1.2rem;
+}
+}
+
+/* .backhome{
+  display: flex;
+  justify-content: center;
+  } */
+.home {
+  height: 1.5rem;
+  width: fit-content;
+  position: absolute;
+  top: 2vh;
+  right: 2vw;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+}
+.home a {
+  text-decoration: none;
+}
+.home:hover {
+}
+
+.animated {
+  position: relative;
+  font-size: 3rem;
+}

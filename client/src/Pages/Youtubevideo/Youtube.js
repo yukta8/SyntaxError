@@ -1,11 +1,13 @@
-import React, { useState } from "react";
-import Navbar from "../../Components/Navbar/Navbar";
-import PageHeading from "../../Components/PageHeading/PageHeading";
+  import React, { useEffect, useState } from "react";
+  import Navbar from "../../Components/Navbar/Navbar";
+  import PageHeading from "../../Components/PageHeading/PageHeading";
+  import axios from "axios";
+  import { useParams } from "react-router-dom";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import video from "../../Assets/aboutus.png";
 
-import './youtube.css';
-import YoutubeCard from "../../Components/Youtube/YoutubeCard";
+  import "./youtube.css";
+  import YoutubeCard from "../../Components/Youtube/YoutubeCard";
 
 const Youtube = () => {
   
@@ -69,21 +71,21 @@ const Youtube = () => {
     <>
       <div className="page">
         <Navbar />
-        <div className="heading-section" id="head">
-          <PageHeading title="Youtube videos" subTitle="top videos for you" /> <button>
-          Articles
-          <BsFillArrowRightCircleFill />
-        </button>
+        <div className="heading-section">
+          <PageHeading title="Youtube videos" subTitle="top videos for you" />
+         
         </div>
-       
         <div className="card-grid">
           {teamData.map((video, id) => {
-            return <YoutubeCard key={id} data={video} />;
+            
+              return <YoutubeCard key={id} data={video} />;
+            
           })}
         </div>
       </div>
+     
     </>
   );
 };
 
-export default Youtube;
+  export default Youtube;

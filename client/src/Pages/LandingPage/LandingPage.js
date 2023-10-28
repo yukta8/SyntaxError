@@ -1,15 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import "./landing.css";
 import background from "../../Assets/back5.gif";
 import min from "../../Assets/enterprise.gif";
 import { FiSearch } from "react-icons/fi";
 import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/Footer";
-import Twoopt from "../twooption/Twoopt";
-import Youtube from "../Article/Article";
-import Article from "../Youtubevideo/Youtube";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+// import Twoopt from "../twooption/Twoopt";
+// import Youtube from "../Article/Article";
+// import Article from "../Youtubevideo/Youtube";
 
 export const LandingPage = () => {
+  const [val, setVal] = useState("Search...");
+  const navigate = useNavigate();
+  const handleSearch = async () => {
+    const a = val.split(" ").join("-");
+    setVal(a);
+    // console.log(val);
+    // history.push(`/search/${val}`);
+    navigate(`/search/${val}`);
+    const { data } = await axios.get("/api/youtubeLinks/Einstein");
+    console.log(data)
+  };
   return (
     <>
       <div
@@ -27,15 +40,19 @@ export const LandingPage = () => {
         </div>
         <div className="search">
           <div className="search-icon">
-            <FiSearch />
+            <FiSearch onClick={handleSearch} />
           </div>
-          <input className="search-input" placeholder="Search" />
+          <input
+            className="search-input"
+            placeholder={val}
+            onChange={(e) => setVal(e.target.value)}
+          />
         </div>{" "}
         <div className="min">
           <img src={min} />
         </div>
       </div>
-      <Footer/>   
+      <Footer />
       {/* <Twoopt
         style={{
           backgroundImage: `url(${background})`,
