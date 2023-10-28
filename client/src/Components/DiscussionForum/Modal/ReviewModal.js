@@ -5,7 +5,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import "./Modal.css"
 
 export function ReviewModal({ open, close, review }) {
-  const { id, Category, Msg, Name } = review;
+  const { id, author, content, title } = review;
 
   return (
     <>
@@ -42,7 +42,7 @@ export function ReviewModal({ open, close, review }) {
         >
           <header className="modal-header">
             <div className="category-heading">
-              {Category}
+              {title}
               <CloseIcon
                 onClick={close}
                 sx={{
@@ -50,10 +50,10 @@ export function ReviewModal({ open, close, review }) {
                 }}
               />
             </div>
-            <div className="name-div">{Name}</div>
+            <div className="name-div">{author}</div>
           </header>
           <div className="description">
-            <div className="review">{Msg}</div>
+            <div className="review">{content}</div>
           </div>
         </Box>
       </Modal>

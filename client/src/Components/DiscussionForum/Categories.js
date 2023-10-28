@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Category = ({ category, filterItems, index }) => {
+const Category = ({
+  category,
+  filterItems,
+  index,
+}) => {
   return (
     <button
       type="button"
-      className="filter-btn"
+      value={category}
       key={index}
-      onClick={() => filterItems(category)}
+      onClick={() => {
+        filterItems(category);
+        
+      }}
+      className={`filter-btn `}
     >
       {category}
     </button>

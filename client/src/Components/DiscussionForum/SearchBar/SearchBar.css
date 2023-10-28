@@ -79,6 +79,11 @@
     color: white;
   }
 
+  .active-btn{
+    background-color: #96b8fa;
+    color: white;
+  }
+
 .search {
     width: 40%;
 }

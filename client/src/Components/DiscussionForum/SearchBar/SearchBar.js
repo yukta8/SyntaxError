@@ -4,7 +4,7 @@ import List from "./List";
 import Categories from "../Categories";
 import "./SearchBar.css";
 
-export const SearchBar = ({ filterItems }) => {
+export const SearchBar = ({ filterItems,reviewsdata }) => {
   const [inputText, setInputText] = useState("");
   let inputHandler = (e) => {
     //convert input text to lower case
@@ -30,7 +30,7 @@ export const SearchBar = ({ filterItems }) => {
         </div>
       </header>
       {/* <Categories input={inputText}/> */}
-      <List input={inputText} filterItems={filterItems} />
+      <List input={inputText} filterItems={filterItems} reviewsdata={reviewsdata} />
     </div>
   );
 };
