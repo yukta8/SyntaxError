@@ -14,7 +14,8 @@ const searchBlogController = async(req,res)=>{
 
 const createBlogController = async (req, res) => {
   try {
-    const { title, author, timestamp, content } = req.body;
+    const { title, content } = req.body;
+    const author = req.user._id;
     if (!title) {
       return res.send({ message: "Title is required" });
     }
@@ -25,7 +26,6 @@ const createBlogController = async (req, res) => {
     const blog = await Blog.create({
       title,
       author,
-      timestamp,
       content,
     });
     res.status(201).send({

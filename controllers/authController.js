@@ -39,19 +39,19 @@ const LoginController = async function (req, res) {
     if (getuser) {
       const result = req.body.password === getuser.password;
       if (result) {
-        const token = await JWT.sign(
-          { _id: user._id },
+        const token = jwt.sign(
+          { _id: getuser._id },
           process.env.JWT_SECRET,
           {
             expiresIn: "1d",
           }
         );
-        res.send({ getuser: { name: getuser.name, email: getuser.email, password:getuser.password },na });
+        const sendd = { getuser, token };
+        res.json(sendd);
       }
     } else {
       res.status(400).json({ error: "User doesn't exist" });
     }
-    console.log(getuser);
   } catch (error) {
     res.status(400).json({ error });
   }
