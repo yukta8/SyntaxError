@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import { LoginPage } from "./Pages/LoginPage/LoginPage";
 import { LandingPage } from "./Pages/LandingPage/LandingPage";
 import { LoginPage } from "./Pages/AuthPages/LoginPage";
 import {SignUpPage} from "./Pages/AuthPages/SignUpPage"
@@ -9,6 +8,8 @@ import Twoopt from "./Pages/twooption/Twoopt"
 import Youtube from "./Pages/Youtubevideo/Youtube"
 import Article from "./Pages/Article/Article"
 import { DiscussionForumPage } from "./Pages/DiscussionForumPage/DiscussionForumPage";
+// import { SearchBar } from "./Components/DiscussionForum/SearchBar/SearchBar";
+
 function App() {
   return (
     <Routes>
@@ -19,6 +20,8 @@ function App() {
       <Route path="/yt/:q" element={<Youtube/>}/>
       <Route path="/article/:q" element={<Article/>}/>
       <Route path="/discuss" element = {<DiscussionForumPage/>}/>
+      {/* <Route path="/searchbar" element = {<SearchBar/>}/> */}
+      
     </Routes>
   );
 }

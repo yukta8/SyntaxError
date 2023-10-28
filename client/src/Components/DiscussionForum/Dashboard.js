@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { AiOutlineSend } from "react-icons/ai";
 import ReviewCard from "./ReviewCard";
-import Categories from "./Categories";
+import Category from "./Categories";
 import Data from "./Data";
 import "./dashboard.css";
 
@@ -34,7 +34,12 @@ function Dashboard() {
           <h2>Discussion Forum</h2>
           <div className="underline"></div>
         </div>
-        <Categories categories={categories} filterItems={filterItems} />
+        <div className="btn-container">
+      {categories.map((category, index) => {
+        return (
+        <Category category={category} filterItems={filterItems} index={index}/>
+        )})}
+        </div>
         <div className="reviews-section">
           {reviews.map((review) => {
             return <ReviewCard key={review.id} review={review} />;
