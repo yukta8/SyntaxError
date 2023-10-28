@@ -17,11 +17,7 @@ export const LandingPage = () => {
   const handleSearch = async () => {
     const a = val.split(" ").join("-");
     setVal(a);
-    // console.log(val);
-    // history.push(`/search/${val}`);
     navigate(`/search/${val}`);
-    const { data } = await axios.get("/api/youtubeLinks/Einstein");
-    console.log(data)
   };
   return (
     <>
