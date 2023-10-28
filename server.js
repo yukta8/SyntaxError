@@ -1,13 +1,14 @@
-require('dotenv').config();
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const passport = require("passport");
 const bodyParser = require("body-parser");
 const LocalStrategy = require("passport-local");
 const User = require("./model/user");
-const apiRoutes = require("./routes/apiRoutes")
+const apiRoutes = require("./routes/apiRoutes");
 const authRoutes = require("./routes/authRoutes");
-const cors = require("cors")
+const blogRoutes = require("./routes/blogRoutes");
+const cors = require("cors");
 var server = express();
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(express.static("public"));
@@ -28,7 +29,6 @@ passport.deserializeUser(User.deserializeUser());
 
 server.use(bodyParser.json());
 
-
 mongoose.connect(process.env.MONGODB_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -44,10 +44,11 @@ db.on("error", (err) => {
 server.use(cors());
 server.use(express.json());
 
-server.use("/api/v1/api", apiRoutes);
-server.use("/auth",authRoutes)
+server.use("/api", apiRoutes);
+server.use("/auth", authRoutes);
+server.use("/community", blogRoutes);
 
 const port = process.env.PORT || 3000;
-server.listen(port,()=>{
-    console.log("server listening on port",port);
-})
+server.listen(port, () => {
+  console.log("server listening on port", port);
+});
