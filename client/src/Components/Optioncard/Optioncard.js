@@ -21,20 +21,23 @@ const Optioncard = ({ data }) => {
           href={data.notion}
           target="_blank"
           rel="noreferrer"
-          className="gcard-link-flex"
+          className="gcard-link-flex" 
+           style={{ textDecoration: "none" }}
         >
-          <button id="clicky"
+          <button
+            id="clicky"
             className="gcard-link"
+          
             onClick={(e) => {
               e.preventDefault();
-              navigate(data.link);  
+              navigate(data.link);
             }}
           >
-            Click Here<span className="gcard-link-icon">
-            <FiArrowUpRight />
-          </span>
+            Click Here
+            <span className="gcard-link-icon">
+              <FiArrowUpRight />
+            </span>
           </button>
-          
         </a>
       </div>
       <div className="gcard-bottom">

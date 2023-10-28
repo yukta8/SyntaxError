@@ -26,3 +26,8 @@
      width: 10vw;
      border: none;
  }
+
+ .card-grid{
+    display: flex;
+    flex-direction: column;
+ }
