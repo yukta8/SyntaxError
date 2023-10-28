@@ -52,7 +52,7 @@ export function ReviewModal({ open, close, review }) {
             </div>
             <div className="name-div">{author.name}</div>
           </header>
-          <div className="description">
+          <div className="modal-description">
             <div className="review">{content}</div>
           </div>
         </Box>
