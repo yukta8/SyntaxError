@@ -20,14 +20,15 @@ server.use(
   })
 );
 
+server.use(cors());
+server.use(express.json());
+server.use(bodyParser.json());
 server.use(passport.initialize());
 server.use(passport.session());
 
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-
-server.use(bodyParser.json());
 
 mongoose.connect(process.env.MONGODB_URL, {
   useNewUrlParser: true,
@@ -41,14 +42,11 @@ db.on("error", (err) => {
   console.error("MongoDB Atlas connection error:", err);
 });
 
-server.use(cors());
-server.use(express.json());
-
 server.use("/api", apiRoutes);
 server.use("/auth", authRoutes);
 server.use("/community", blogRoutes);
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 1947;
 server.listen(port, () => {
   console.log("server listening on port", port);
 });

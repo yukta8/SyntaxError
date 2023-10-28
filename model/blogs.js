@@ -17,5 +17,8 @@ var blogSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+  meta:{
+    votes: Number
+  }
 });
 module.exports = mongoose.model("blog",blogSchema);

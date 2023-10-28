@@ -16,6 +16,7 @@ const createBlogController = async (req, res) => {
   try {
     const { title, content } = req.body;
     const author = req.user._id;
+    const votes=0;
     if (!title) {
       return res.send({ message: "Title is required" });
     }
@@ -27,6 +28,9 @@ const createBlogController = async (req, res) => {
       title,
       author,
       content,
+      meta:{
+        votes
+      }
     });
     res.status(201).send({
       success: true,
