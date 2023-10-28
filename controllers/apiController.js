@@ -16,15 +16,17 @@ const ytController = async (req, res) => {
       const videoData = videos.map((video, index) => {
         const videoId = video.id.videoId;
         const videoTitle = video.snippet.title;
+        const videoDesc = video.snippet.description;
         const videoPng = video.snippet.thumbnails.high.url
         const videoURL = `https://www.youtube.com/watch?v=${videoId}`;
         return {
           title: videoTitle,
           photo:videoPng,
+          description:videoDesc,
           link: videoURL,
         };
       });
-      res.json(videoData); // Send the video data as a JSON response
+      res.json(videoData); 
     })
     .catch((error) => {
       console.error("Error fetching video data:", error);
