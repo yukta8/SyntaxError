@@ -34,7 +34,7 @@ const Navbar = () => {
 
         <Link
           style={{ textDecoration: "none" }}
-          to="/"
+          to="/login"
           id="log"
           className={
             locator.pathname === "/login" ? "nav-link nav-acitve" : "nav-link"
