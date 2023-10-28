@@ -44,14 +44,14 @@
 
 .filter-item {
   padding: 10px 16px;
-  background: #ffffff;
+  background: #13104f;
   border: 1px solid #d0d5dd;
   font-family: "Outfit";
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
-  color: #344054;
+  color: #c9cdd5;
   cursor: pointer;
 }
 

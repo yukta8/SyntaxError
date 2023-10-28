@@ -3,12 +3,16 @@ import "./arti.css";
 import { NavLink } from "react-router-dom";
 
 const ArticleCard = ({ data }) => {
+  if (!data || !data.description) {
+    return null;
+  }
   return (
     
       <div className="ecard">
         <div className="ecard-group-name">{data.group}</div>
         <div className="ecard-title">{data.title}</div>
-        <div className="ecard-date">Date: {data.date}</div>
+        <div className="ecard-date">Website: {data.website}</div>
+        <p className="ecard-para">{data.description.substring(0,200 )}</p>
         <p className="ecard-para">{data.link}</p>
         <div className="ecard-btm" id="btmcard">
          
