@@ -44,7 +44,17 @@ const createBlogController = async (req, res) => {
 };
 
 const getBlogsController = async (req, res) => {
-    const blogs = await Blog.find({})
+    const page = parseInt(req.query.page) || 1; 
+    const perPage = parseInt(req.query.perPage) || 10;
+    try {
+    const blogs = await Blog.find()
+      .skip((page - 1) * perPage)
+      .limit(perPage);
+
+    res.json(blogs);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch blogs' });
+  }
 };
 
 module.exports = {
