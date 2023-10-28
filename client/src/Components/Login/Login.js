@@ -20,6 +20,10 @@ export const Login = () => {
     }
   console.log(email,password);
   };
+  const handleGoogleAuth = ()=>{
+    window.location.href=
+     "http://localhost:1947/auth/google/callback"
+  };
   
   return (
     <main>
@@ -48,7 +52,7 @@ export const Login = () => {
             LOGIN
           </button>
           Or login with
-          <button className="google-auth">
+          <button onClick={handleGoogleAuth} className="google-auth">
             <FcGoogle /> Google
           </button>
           <div className="signin">

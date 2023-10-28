@@ -49,8 +49,11 @@ const LoginController = async function (req, res) {
         const sendd = { getuser, token };
         res.json(sendd);
       }
+      else{
+        res.send('<script>alert("passwords dont match)</script>');
+      }
     } else {
-      res.status(400).json({ error: "User doesn't exist" });
+      res.send('<script>alert("user dont exist")</script>');;
     }
   } catch (error) {
     res.status(400).json({ error });
