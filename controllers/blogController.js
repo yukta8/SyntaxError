@@ -1,4 +1,5 @@
-const getAllBlogs = async(req,res)=>{
+const Blog = require("../model/blogs");
+const searchBlogController = async(req,res)=>{
   const searchQuery = req.query.q;
   try {
     const blogs = await Blog.find({
@@ -10,7 +11,6 @@ const getAllBlogs = async(req,res)=>{
     res.status(500).json({ error: 'Failed to search for blogs' });
   }
 };
-const Blog = require("../model/blogs");
 
 const createBlogController = async (req, res) => {
   try {
@@ -50,4 +50,5 @@ const getBlogsController = async (req, res) => {
 module.exports = {
   getBlogsController,
   createBlogController,
+  searchBlogController,
 };
