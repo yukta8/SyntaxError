@@ -1,3 +1,4 @@
+require('dotenv').config();
 const User = require("../model/user");
 const jwt = require("jsonwebtoken");
 
@@ -28,7 +29,6 @@ const RegisterController = async (req,res)=>{
           res.send('<script>alert("passwords dont match)</script>');
         }
       }
-      console.log(getUser);
     } catch (error) {
       console.log(error);
     }
