@@ -1,38 +1,54 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.page {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  gap: 64px;
+  padding: 140px 112px 48px 112px;
+  position: relative;
+  z-index: 0;
+  background: #dc88f6;
+}
+
+.heading-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 48px;
+}
+
+.filter {
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: flex-start;
+  filter: drop-shadow(0px 1px 2px rgba(16, 24, 40, 0.05));
 }
 
-.App-link {
-  color: #61dafb;
+.filter-item {
+  padding: 10px 16px;
+  background: #ffffff;
+  border: 1px solid #d0d5dd;
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  color: #344054;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.filter-item-right {
+  border-radius: 0px 8px 8px 0px !important;
 }
+
+.filter-item-left {
+  border-radius: 8px 0px 0px 8px !important;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 32px;
+  row-gap: 48px;}

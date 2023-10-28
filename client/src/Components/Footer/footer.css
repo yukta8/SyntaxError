@@ -1,0 +1,118 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 80px 180px;
+    width: 100%;
+    position: relative;
+    z-index: 0;
+    background: #191919;
+    overflow: hidden;
+}
+
+.bottom-graphic {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.footer-content {
+    position: relative;
+    z-index: 2;
+}
+
+.footer-title {
+    font-family: "Outfit";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 120%;
+    color: #ffffff;
+}
+
+.footer-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-address {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-sub-text {
+    font-family: "Outfit";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 157%;
+    color: #ffffff;
+}
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-contact-flex {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+}
+
+@media screen and (max-width: 1350px) {
+    .footer {
+        padding: 80px 100px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .footer {
+        padding: 60px 40px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .footer {
+        padding: 60px 40px;
+    }
+
+    .footer-title {
+        font-size: 32px;
+    }
+
+    .footer-sub-text {
+        opacity: 0.6;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .footer {
+        padding: 60px 40px;
+    }
+
+    .footer-title {
+        font-size: 24px;
+    }
+
+    .footer-contact {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .footer {
+        padding: 60px 24px;
+    }
+
+    .footer-title {
+        font-size: 22px;
+    }
+}
