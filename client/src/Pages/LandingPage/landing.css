@@ -15,6 +15,7 @@ flex-direction: row;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    scroll-behavior: smooth;
   
 }
 
@@ -29,6 +30,7 @@ flex-direction: row;
     font-size: 4rem;
 
 }
+
 
 .content h3 {
     font-size: 2rem;

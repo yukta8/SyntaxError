@@ -3,3 +3,9 @@
     max-width: calc(33% - 20px);
 
 }
+#head{
+    display: flex;
+    flex-direction: row;
+   
+    align-items: center;
+} 

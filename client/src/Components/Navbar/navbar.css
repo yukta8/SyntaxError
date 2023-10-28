@@ -1,6 +1,5 @@
 .nav {
 
-
     /* .card {
            
             background-color: rgba(255, 255, 255, .45);
@@ -19,7 +18,7 @@
     backdrop-filter: blur(15px);
     /* background: #191919; */
 
-    padding: 18px 112px;
+    padding:5px 112px;
     position: absolute;
     width: 100%;
     top: 0;
@@ -27,11 +26,14 @@
     z-index: 1;
 }
 
-.nav img {
-    width: 30px;
-    height: 30px;
-}
 
+.nav img {
+    width: 80px;
+    height: 50px;
+}
+#log{
+    font-size: 25px;
+}
 
 .nav-links {
     display: flex;
@@ -40,23 +42,47 @@
     justify-content: flex-start;
     gap: 32px;
 }
+.nav-links .avtar{
+    cursor: pointer;
+}
+
+
+.nav-links:hover {
+    color: #603068 ;
+}
 
 .nav-link {
     font-family: "Outfit";
     font-style: normal;
     font-weight: 500;
-    font-size: 18px;
+    
+    font-size: 20px;
     line-height: 133%;
-    color: rgba(255, 255, 255, 0.4);
+    color: rgb(98 150 253);
+    transition: 0.2s;
+}
+.nav-link:hover{
+   
+  border:1px solid rgb(1 59 213);
+  border-radius: 5px;
+  background-color: rgb(1 59 213);
+  padding: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }
 
 .nav-acitve {
-    color: #ffffff !important;
+    color: rgb(1 59 213) !important;
+font-weight: bold;
+font-size: 30px;
 }
 
 button {
+height: 20px;
     background: none;
-    font-size: 20px;
+    font-size: 15px;
     border: none;
     color: white;
 }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./landing.css";
-import background from "../../Assets/back1.jpg";
+import background from "../../Assets/back5.gif";
 import min from "../../Assets/enterprise.gif";
 import { FiSearch } from "react-icons/fi";
 import Navbar from "../../Components/Navbar/Navbar";
