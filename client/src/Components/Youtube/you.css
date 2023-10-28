@@ -31,6 +31,7 @@
     flex-direction: column;
     gap: 36px;
     align-items: center;
+    justify-content: center;
     padding: 24px 4px 22px 4px;
     background: rgba(245, 245, 245, 0.9);
     border-radius: 0px 0px 20px 20px;
@@ -63,6 +64,18 @@
     text-align: center;
     color: #7d2c95;
     transition: all 0.3s ease;
+}
+#watch{
+    margin-left: 0;
+    background-color: #48175e;
+    color: #ffffff;
+    border-color: #48175e;
+    cursor: pointer;
+
+}
+#watch:hover{
+background-color:#ffffff;
+color: #48175e;
 }
 
 .tcard-links {
