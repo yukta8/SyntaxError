@@ -1,6 +1,7 @@
 require('dotenv').config();
 const User = require("../model/user");
 const jwt = require("jsonwebtoken");
+const passport = require("passport");
 
 const RegisterController = async (req,res)=>{
     const { email, password, cpassword, name } = req.body;
@@ -33,6 +34,7 @@ const RegisterController = async (req,res)=>{
       console.log(error);
     }
 };
+
 const LoginController = async function (req, res) {
   try {
     const getuser = await User.findOne({ email: req.body.email });

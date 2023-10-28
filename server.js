@@ -2,35 +2,44 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const passport = require("passport");
+const session = require("express-session");
 const bodyParser = require("body-parser");
 const LocalStrategy = require("passport-local");
 const User = require("./model/user");
+const cookieSession = require('cookie-session');
+const passportSetup = require('./passport');
 const apiRoutes = require("./routes/apiRoutes");
 const authRoutes = require("./routes/authRoutes");
 const blogRoutes = require("./routes/blogRoutes");
 const cors = require("cors");
 var server = express();
-server.use(cors());
+server.use(
+  cors({
+    origin: "http://localhost:3000",
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true,
+  })
+);
 server.use(express.json());
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(express.static("public"));
 server.use(bodyParser.json());
 server.use(
-  require("express-session")({
-    secret: "my bestf is cool no",
+  session({
+    secret: process.env.CLIENT_SECRET,
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: true,
   })
 );
-
+server.use(
+  cookieSession({
+    name:'session',
+    keys: ['research'],
+    maxAge : 24*60*60*100,
+  })
+);
 server.use(passport.initialize());
 server.use(passport.session());
-
-passport.use(new LocalStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
-
-
 mongoose.connect(process.env.MONGODB_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
