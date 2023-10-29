@@ -6,6 +6,13 @@
     margin-right: 10px;
     flex-direction: row;
 }
+#optmain{
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(-45deg, #013bd5, #e73c7e, #6296fd, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+}
 
 
 /* .page{

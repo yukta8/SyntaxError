@@ -1,23 +1,45 @@
 import React, { useRef } from "react";
 import "./navbar.css";
 import logo from "../../Assets/logo2.png";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
-import Avatar from "@mui/material/Avatar";
+import Swal from "sweetalert2";
+// import Avatar from "@mui/material/Avatar";
 import { BiSolidHomeHeart } from "react-icons/bi";
 import { BsChatSquareHeartFill } from "react-icons/bs";
-import {BiSolidLogInCircle} from "react-icons/bi";
+import { BiSolidLogInCircle } from "react-icons/bi";
+import Cookies from "js-cookie";
+import axios from "axios";
 
 const Navbar = () => {
   const locator = useLocation();
   const navRef = useRef();
+  const navigate = useNavigate();
   const showNavbar = () => {
     navRef.current.classList.toggle("responsive_nav");
   };
+  const handleLogout = async () => {
+    try {
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Logout successful",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+      });
+      Cookies.remove("authToken");
+      const resp = await axios.get("/auth/logout");
+      // navigate("/")
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  const isAuthenticated = Cookies.get("authToken") ? true : false;
   return (
     <div className="nav">
-      <Link to="/" style={ {textDecoration: "none"} }>
+      <Link to="/" style={{ textDecoration: "none" }}>
         <img src={logo} alt="STC" className="nav-logo" />
       </Link>
       <div className="nav-links" ref={navRef}>
@@ -30,17 +52,26 @@ const Navbar = () => {
         >
           <BiSolidHomeHeart />
         </Link>
-
-        <Link
-          style={{ textDecoration: "none" }}
-          to="/login"
-          id="log"
-          className={
-            locator.pathname === "/login" ? "nav-link nav-acitve" : "nav-link"
-          }
-        >
-          <BiSolidLogInCircle />
-        </Link>
+        {isAuthenticated ? (
+          <Link
+            // to="/"
+            style={{ textDecoration: "none" }}
+            className="nav-link"
+            onClick={handleLogout}
+          >
+            Logout
+          </Link>
+        ) : (
+          <Link
+            to="/login"
+            style={{ textDecoration: "none" }}
+            className={
+              locator.pathname === "/login" ? "nav-link nav-acitve" : "nav-link"
+            }
+          >
+            <BiSolidLogInCircle />
+          </Link>
+        )}
         <Link
           style={{ textDecoration: "none" }}
           to="/discussionforum"
@@ -52,7 +83,6 @@ const Navbar = () => {
         >
           <BsChatSquareHeartFill />
         </Link>
-
         {/* <Avatar className="avtar" id="basic-button"></Avatar> */}
         {/* changes */}
         <button onClick={showNavbar} className="nav-btn nav-close-btn">

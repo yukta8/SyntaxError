@@ -91,9 +91,7 @@ const LoginController = async function (req, res) {
 };
 const LogoutController = (req, res) =>{
   req.logout(function (err) {
-    if (err) {
-      return next(err);
-    }
+    console.log(err)
   });
 };
 
