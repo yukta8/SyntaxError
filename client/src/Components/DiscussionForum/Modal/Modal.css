@@ -25,6 +25,7 @@
 }
 
 .description {
+  width: 100%;
   box-sizing: border-box;
   display: flex;
   padding: 2rem 2rem;

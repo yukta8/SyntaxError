@@ -58,7 +58,7 @@
     justify-content: left;
     overflow-x: auto;
     /* max-width: 100%; */
-    margin: 1rem;
+    margin: 0 1rem;
     white-space: nowrap;
   }
   .filter-btn {

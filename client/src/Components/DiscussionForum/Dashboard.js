@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { AiOutlineSend } from "react-icons/ai";
 import api from "../../api/api";
 
@@ -7,7 +7,7 @@ import Category from "./Categories";
 import Data from "./Data";
 import "./dashboard.css";
 import { SearchBar } from "./SearchBar/SearchBar";
-  import Cookies from "js-cookie"; 
+import Cookies from "js-cookie";
 
 // const allCategories = new Set(items.map((item)=> item.category))
 // const allCategories = ["all", ...new Set(Data.map((item) => item.Category))];
@@ -17,30 +17,43 @@ function Dashboard({ reviewsdata }) {
   const [reviews, setReviews] = useState(reviewsdata);
   // const [categories, setCategories] = useState(allCategories);
   const [reviewText, setReviewText] = useState("");
-  const [heading,setHeading] = useState("")
-  const token = Cookies.get("authToken"); 
+  const [heading, setHeading] = useState("");
+  const [refreshKey, setRefreshKey] = useState(0)
+
+  const token = Cookies.get("authToken");
   console.log(token);
 
   const handleReviewSubmit = async (e) => {
     e.preventDefault();
-    try { 
-    console.log(heading,reviewText);
-    const config = {
-      headers: {
-        Authorization: `${token}`,
-      },
-    };  
-      const response = await api.post("/create-blog", { title: heading,content:reviewText},config);
+    try {
+      console.log(heading, reviewText);
+      const config = {
+        headers: {
+          Authorization: `${token}`,
+        },
+      };
+      const response = await api.post(
+        "/create-blog",
+        { title: heading, content: reviewText },
+        config
+      );
 
       console.log("Review submitted successfully");
-      
 
       setReviewText("");
+      setHeading("");
+      setRefreshKey((prevKey) => prevKey + 1); // Increment the key to trigger a refresh
     } catch (error) {
-      // Handle errors (e.g., show an error message)
       console.error("Error submitting review:", error);
     }
-  };
+    } 
+  
+
+  useEffect(() => {
+    if (refreshKey > 0) {
+      window.location.reload(); 
+    }
+  }, [refreshKey]);
 
   // console.log(reviewsdata);
   // console.log(reviews);
@@ -68,6 +81,7 @@ function Dashboard({ reviewsdata }) {
           {reviews.map((review) => {
             return <ReviewCard key={review.id} review={review} />;
           })}
+          <button className="load-more-btn">load more</button>
         </div>
         <form className="type-box-form">
           <div className="type-box-div">
@@ -89,7 +103,12 @@ function Dashboard({ reviewsdata }) {
               required
             />
           </div>
-          <button type="submit" id="Submit" class="send" onClick={handleReviewSubmit}>
+          <button
+            type="submit"
+            id="Submit"
+            class="type-send"
+            onClick={handleReviewSubmit}
+          >
             <AiOutlineSend color="black" />
           </button>
         </form>
