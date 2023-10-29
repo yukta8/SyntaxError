@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import api from "../../api/api";
 import Dashboard from "../../Components/DiscussionForum/Dashboard";
+import Navbar from "../../Components/Navbar/Navbar";
 
 import styled from "styled-components";
 
@@ -24,9 +25,11 @@ export const DiscussionForumPage = () => {
   console.log(reviewsData);
   return (
     <>
+    <Navbar/>
       {isError !== "" ? (
         <Error>{isError}</Error>
       ) : (
+        
         <Dashboard reviewsdata={reviewsData} />
       )}
     </>

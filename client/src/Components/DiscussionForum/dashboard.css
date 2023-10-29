@@ -7,6 +7,7 @@
 }
 
 .dashboard-section {
+  margin-top: 2rem;
   padding: 2rem;
   line-height: 1.5;
   display: flex;
@@ -21,13 +22,13 @@
   width: 90%;
 }
 
-
-
 .reviews-section {
-  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
   /* overflow-y: hidden; */
   align-self: center;
-  height: 55vh;
+  height: 52vh;
   margin-bottom: 7rem;
   width: 100%;
   margin-left: 2rem;
@@ -37,6 +38,14 @@
   display: flex;
   gap: 1rem 2rem;
   margin: 2rem;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+}
+h3 {
+  color: rgb(45, 85, 204);
 }
 
 .profile {
@@ -61,7 +70,9 @@
 }
 
 .type-box-form {
-  width: 40%;
+  gap: 0;
+  overflow-x: auto;
+  width: 40rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -72,25 +83,31 @@
   border: 1px solid black;
   padding: 0 1rem;
   border-radius: 1rem;
+  /* overflow-x: hidden; */
 }
 
-.type-box-div{
-  width: 90%;
+.type-box-div {
+  padding: 1rem;
+  margin: 0;
+  width: 80%;
   height: fit-content;
   display: flex;
   flex-direction: column;
 }
-.type-box-form input {
+.type-topic,
+.type-review {
   height: fit-content;
+  padding: 0;
+  margin: 0;
   width: 100%;
   text-align: left;
 }
 
-.type-topic{
+.type-topic {
   font-size: 1rem;
 }
 
-.type-review{
+.type-review {
   font-size: 1.5rem;
 }
 
@@ -98,9 +115,15 @@ input:focus {
   outline: none;
 }
 
-.send {
+.type-send {
+  position: relative;
+  margin: 0;
+  justify-self: flex-end;
+  color: black;
+  width: 4vw;
+  border: none;
   cursor: pointer;
-  width: 2rem;
+  background-color: transparent;
 }
 
 .read-more {

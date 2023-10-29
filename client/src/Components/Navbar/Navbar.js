@@ -76,7 +76,7 @@ const Navbar = () => {
           style={{ textDecoration: "none" }}
           to="/discussionforum"
           className={
-            locator.pathname === "/community"
+            locator.pathname === "/discussionforum"
               ? "nav-link nav-acitve"
               : "nav-link"
           }

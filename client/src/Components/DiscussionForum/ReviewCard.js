@@ -16,8 +16,9 @@ const ReviewCard = ({ review }) => {
     <article key={id} className="review-card">
       <div className="profile">{author.name.slice(0, 1)}</div>
       <div className="review-msg-box">
-        <header>
+        <header className="review-header">
           <h4>{author.name} </h4>
+          <h3>Topic: {title}</h3>
         </header>
         <div className="message">
           {content.slice(0, 50)} {content.length <= 50 ? "" : `... `}

@@ -40,9 +40,10 @@ export function ReviewModal({ open, close, review }) {
             borderRadius: "1rem",
           }}
         >
+          
           <header className="modal-header">
             <div className="category-heading">
-              {title}
+              Topic: {title}
               <CloseIcon
                 onClick={close}
                 sx={{
@@ -50,7 +51,7 @@ export function ReviewModal({ open, close, review }) {
                 }}
               />
             </div>
-            <div className="name-div">{author.name}</div>
+            <div className="name-div"> - {author.name}</div>
           </header>
           <div className="description">
             <div className="review">{content}</div>

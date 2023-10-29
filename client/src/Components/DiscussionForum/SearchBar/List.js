@@ -10,7 +10,6 @@ function List({ input, filterItems, reviewsdata }) {
     "all",
     ...new Set(reviewsdata.map((item) => item.title)),
   ];
-
   let categoriesToDisplay = allCategories;
   let empty = false;
   if (input !== "") {
@@ -20,11 +19,10 @@ function List({ input, filterItems, reviewsdata }) {
     });
   }
 
+
   if (categoriesToDisplay.length === 0) {
     empty = true;
-    return(
-      <h2>No matching topics</h2>
-    )
+    return <h2>No matching topics</h2>;
   }
 
   return (
