@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { AiOutlineSend } from "react-icons/ai";
 import api from "../../api/api";
 
@@ -18,7 +18,7 @@ function Dashboard({ reviewsdata }) {
   // const [categories, setCategories] = useState(allCategories);
   const [reviewText, setReviewText] = useState("");
   const [heading, setHeading] = useState("");
-  const [refreshKey, setRefreshKey] = useState(0)
+  const [refreshKey, setRefreshKey] = useState(0);
 
   const token = Cookies.get("authToken");
   console.log(token);
@@ -46,12 +46,11 @@ function Dashboard({ reviewsdata }) {
     } catch (error) {
       console.error("Error submitting review:", error);
     }
-    } 
-  
+  };
 
   useEffect(() => {
     if (refreshKey > 0) {
-      window.location.reload(); 
+      window.location.reload();
     }
   }, [refreshKey]);
 
@@ -81,7 +80,6 @@ function Dashboard({ reviewsdata }) {
           {reviews.map((review) => {
             return <ReviewCard key={review.id} review={review} />;
           })}
-          <button className="load-more-btn">load more</button>
         </div>
         <form className="type-box-form">
           <div className="type-box-div">

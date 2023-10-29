@@ -134,8 +134,3 @@ input:focus {
   cursor: pointer;
 }
 
-.load-more-btn{
-  justify-self: center;
-  color: black;
-  font-size: 1.2rem;
-}
