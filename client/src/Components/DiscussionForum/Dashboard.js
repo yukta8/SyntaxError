@@ -15,21 +15,25 @@ function Dashboard({ reviewsdata }) {
   const [reviews, setReviews] = useState(reviewsdata);
   // const [categories, setCategories] = useState(allCategories);
   const [reviewText, setReviewText] = useState("");
-  const [heading,setHeading] = useState("");
+
+  const [heading, setHeading] = useState("");
   const [refreshKey, setRefreshKey] = useState(0);
   const token = Cookies.get("authToken");
   console.log(token);
 
   const handleReviewSubmit = async (e) => {
     e.preventDefault();
-    try { 
-    console.log(heading,reviewText);
-    const config = {
-      headers: {
-        Authorization: `${token}`,
-      },
-    };  
-      const response = await api.post("/create-blog", { title: heading,content:reviewText},config);
+    try {
+      const config = {
+        headers: {
+          Authorization: `${token}`,
+        },
+      };
+      const response = await api.post(
+        "/create-blog",
+        { title: heading, content: reviewText },
+        config
+      );
 
       console.log("Review submitted successfully");
 
@@ -37,7 +41,6 @@ function Dashboard({ reviewsdata }) {
       setHeading("");
       setRefreshKey((prevKey) => prevKey + 1); // Increment the key to trigger a refresh
     } catch (error) {
-      // Handle errors (e.g., show an error message)
       console.error("Error submitting review:", error);
       if (error) {
         Swal.fire({
@@ -83,7 +86,7 @@ function Dashboard({ reviewsdata }) {
           })}
         </div>
         <form className="type-box-form">
-          <div className="type-box-div" style={{margin:"0px"}}>
+          <div className="type-box-div" style={{ margin: "0px" }}>
             <input
               type="text"
               className="type-topic"
@@ -102,7 +105,18 @@ function Dashboard({ reviewsdata }) {
               required
             />
           </div>
-          <button type="submit" id="Submit" class="send" style={{margin:"0px",fontSize:"1.5rem",border:"none",boxShadow:"none"}} onClick={handleReviewSubmit}>
+          <button
+            type="submit"
+            id="Submit"
+            class="send"
+            style={{
+              margin: "0px",
+              fontSize: "1.5rem",
+              border: "none",
+              boxShadow: "none",
+            }}
+            onClick={handleReviewSubmit}
+          >
             <AiOutlineSend color="black" />
           </button>
         </form>
