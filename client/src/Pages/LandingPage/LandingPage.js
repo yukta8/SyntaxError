@@ -22,7 +22,8 @@ export const LandingPage = () => {
   return (
     <>
       <div
-        className="main"
+      
+         id ="landmain"
         style={{
           backgroundImage: `url(${background})`,
           backgroundSize: "cover",
@@ -31,7 +32,7 @@ export const LandingPage = () => {
       >
         <Navbar />
         <div className="content">
-          <h1>GAIN KNOWLEDGE</h1>
+          <h1 >GAIN KNOWLEDGE</h1>
           <h3>Learn in a easy way</h3>
         </div>
         <div className="search">

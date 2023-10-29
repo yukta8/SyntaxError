@@ -49,7 +49,7 @@ const Twoopt = () => {
 
   /*return <ChildComponent isMediaQueryMatched={isMediaQueryMatched} />;*/
   return (
-    <>
+    <div id ="optmain">
       {/* <GroupCard isMediaQueryMatched={isMediaQueryMatched} /> */}
       <div className="page">
         <Navbar />
@@ -65,7 +65,7 @@ const Twoopt = () => {
           })}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
