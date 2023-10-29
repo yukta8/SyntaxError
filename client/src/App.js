@@ -9,7 +9,6 @@ import Twoopt from "./Pages/twooption/Twoopt";
 import Youtube from "./Pages/Youtubevideo/Youtube";
 import Research from "./Pages/Research/Research";
 import { DiscussionForumPage } from "./Pages/DiscussionForumPage/DiscussionForumPage";
-import { SearchBar } from "./Components/DiscussionForum/SearchBar/SearchBar";
 function App() {
   return (
     <Routes>
