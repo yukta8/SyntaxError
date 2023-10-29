@@ -1,10 +1,9 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import "./navbar.css";
 import logo from "../../Assets/logo2.png";
 import { Link, useLocation } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
-import { NavLink } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
 import { BiSolidHomeHeart } from "react-icons/bi";
 import { BsChatSquareHeartFill } from "react-icons/bs";
@@ -44,7 +43,7 @@ const Navbar = () => {
         </Link>
         <Link
           style={{ textDecoration: "none" }}
-          to="/Community"
+          to="/discussionforum"
           className={
             locator.pathname === "/community"
               ? "nav-link nav-acitve"
@@ -54,7 +53,7 @@ const Navbar = () => {
           <BsChatSquareHeartFill />
         </Link>
 
-        <Avatar className="avtar" id="basic-button"></Avatar>
+        {/* <Avatar className="avtar" id="basic-button"></Avatar> */}
         {/* changes */}
         <button onClick={showNavbar} className="nav-btn nav-close-btn">
           <ImCross />{" "}

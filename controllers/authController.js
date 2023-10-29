@@ -7,7 +7,10 @@ const RegisterController = async (req,res)=>{
     try {
       const getUser = await User.findOne({ email }).exec();
       if (getUser) {
-        res.send('<script>alert("User Already exists")</script>');
+        res.status(200).send({
+          success: false,
+          message: "Already Registered! Login to continue",
+        });
       } else {
         if (req.body.password === req.body.cpassword) {
           console.log("congo yea");
@@ -24,13 +27,25 @@ const RegisterController = async (req,res)=>{
             }
           );
           const sendd = { user, token };
-          res.json(sendd);
+          res.status(201).send({
+            success: true,
+            message: "Registration successful!",
+            sendd,
+          });
         } else {
-          res.send('<script>alert("passwords dont match)</script>');
+          res.status(500).send({
+            success: false,
+            message: "Passwords don't match", 
+          });
         }
       }
     } catch (error) {
       console.log(error);
+      res.status(500).send({
+        success: false,
+        message: "Error",
+        error,
+      });
     }
 };
 const LoginController = async function (req, res) {
@@ -47,16 +62,31 @@ const LoginController = async function (req, res) {
           }
         );
         const sendd = { getuser, token };
-        res.json(sendd);
+        res.status(200).send({
+          success: true,
+          message: "Login Successful",
+          sendd,
+          token,
+        });
       }
       else{
-        res.send('<script>alert("passwords dont match)</script>');
+        return res.status(200).send({
+          success: false,
+          message: "Invalid Password",
+        });
       }
     } else {
-      res.send('<script>alert("user dont exist")</script>');;
+       return res.status(404).send({
+         success: false,
+         message: "Email is not registered, Register to Continue",
+       });
     }
   } catch (error) {
-    res.status(400).json({ error });
+    res.status(500).send({
+      success: false,
+      message: "Error",
+      error,
+    });
   }
 };
 const LogoutController = (req, res) =>{

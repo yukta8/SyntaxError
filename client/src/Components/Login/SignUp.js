@@ -2,19 +2,22 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import axios from "axios";
-import Cookies from "js-cookie"; // Import the library
-
+import Cookies from "js-cookie";
+import Swal from "sweetalert2";
 import lback from "../../Assets/logback.jpg";
+import { useNavigate,useLocation } from "react-router-dom";
 
 import "./Login.css";
 import Navbar from "../Navbar/Navbar";
 
 export const SignUp = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [cpassword, setCpassword] = useState("");
   const [name, setName] = useState("");
-  const [token,setToken] = useState("");
+  const [token, setToken] = useState("");
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -25,18 +28,42 @@ export const SignUp = () => {
         password,
         cpassword,
       });
-
+      if (response && response.data.success) {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: response.data.message,
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+        });
+        navigate(location.state || "/discussionforum");
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: response.data.message,
+          timer: 3000,
+          timerProgressBar: true,
+        });
+      }
       Cookies.set("authToken", response.data.token, { expires: 70000 });
     } catch (error) {
       console.log(error);
+       console.log(error);
+       Swal.fire({
+         icon: "error",
+         title: "Oops...",
+         text: "Somethimg went wrong!",
+         timer: 3000,
+         timerProgressBar: true,
+       });
     }
-
   };
 
   console.log(token);
-  const handleGoogleAuth = ()=>{
-    window.location.href=
-     "http://localhost:1947/auth/google/callback"
+  const handleGoogleAuth = () => {
+    window.location.href = "http://localhost:1947/auth/google/callback";
   };
 
   return (

@@ -16,21 +16,29 @@ const createBlogController = async (req, res) => {
   try {
     const { title, content } = req.body;
     const author = req.user._id;
-    const votes=0;
+    const votes = 0;
     if (!title) {
-      return res.send({ message: "Title is required" });
+      return res.send({ success: false, message: "Title is required" });
     }
     if (!content) {
-      return res.send({ message: "content is required" });
+      return res.send({ success: false, message: "content is required" });
+    }
+
+    if (!author) {
+      return res.send({
+        success: false,
+        message:
+          "You need to sign up/Log in to be able to contribute to discussion forum",
+      });
     }
 
     const blog = await Blog.create({
       title,
       author,
       content,
-      meta:{
-        votes
-      }
+      meta: {
+        votes,
+      },
     });
     res.status(201).send({
       success: true,
@@ -54,7 +62,8 @@ const getBlogsController = async (req, res) => {
     const blogs = await Blog.find()
       .sort({ timestamp: -1 })
       .skip((page - 1) * perPage)
-      .limit(perPage).populate('author', 'name');
+      .limit(perPage)
+      .populate("author", "name");
 
     res.json(blogs);
   } catch (error) {
