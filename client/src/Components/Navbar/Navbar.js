@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import "./navbar.css";
-import logo from "../../Assets/logo2.png";
+import logo from "../../Assets/logo3.png";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
