@@ -6,7 +6,6 @@
   box-sizing: border-box;
 }
 
-
 .dashboard-section {
   margin-top: 2rem;
   padding: 2rem;
@@ -22,8 +21,6 @@
   flex-direction: column;
   width: 90%;
 }
-
-
 
 .reviews-section {
   display: flex;
@@ -43,13 +40,11 @@
   margin: 2rem;
 }
 
-.review-header{
-display: flex;
-justify-content: space-between;
-
-
+.review-header {
+  display: flex;
+  justify-content: space-between;
 }
-h3{
+h3 {
   color: rgb(45, 85, 204);
 }
 
@@ -75,8 +70,9 @@ h3{
 }
 
 .type-box-form {
+  gap: 0;
   overflow-x: auto;
-  width: 40vw;
+  width: 40rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -87,16 +83,19 @@ h3{
   border: 1px solid black;
   padding: 0 1rem;
   border-radius: 1rem;
+  /* overflow-x: hidden; */
 }
 
-.type-box-div{
+.type-box-div {
   padding: 1rem;
-  min-width: 40%;
+  margin: 0;
+  width: 80%;
   height: fit-content;
   display: flex;
   flex-direction: column;
 }
-.type-topic, .type-review {
+.type-topic,
+.type-review {
   height: fit-content;
   padding: 0;
   margin: 0;
@@ -104,11 +103,11 @@ h3{
   text-align: left;
 }
 
-.type-topic{
+.type-topic {
   font-size: 1rem;
 }
 
-.type-review{
+.type-review {
   font-size: 1.5rem;
 }
 
@@ -117,13 +116,13 @@ input:focus {
 }
 
 .type-send {
+  position: relative;
   margin: 0;
   justify-self: flex-end;
   color: black;
-  width: 10%;
+  width: 4vw;
   border: none;
   cursor: pointer;
-  width: 2rem;
   background-color: transparent;
 }
 
@@ -133,4 +132,3 @@ input:focus {
   color: #96b8fa;
   cursor: pointer;
 }
-

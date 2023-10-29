@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { AiOutlineSend } from "react-icons/ai";
 import api from "../../api/api";
-
+import Swal from "sweetalert2";
 import ReviewCard from "./ReviewCard";
-import Category from "./Categories";
-import Data from "./Data";
 import "./dashboard.css";
 import { SearchBar } from "./SearchBar/SearchBar";
 import Cookies from "js-cookie";
@@ -17,26 +15,21 @@ function Dashboard({ reviewsdata }) {
   const [reviews, setReviews] = useState(reviewsdata);
   // const [categories, setCategories] = useState(allCategories);
   const [reviewText, setReviewText] = useState("");
-  const [heading, setHeading] = useState("");
+  const [heading,setHeading] = useState("");
   const [refreshKey, setRefreshKey] = useState(0);
-
   const token = Cookies.get("authToken");
   console.log(token);
 
   const handleReviewSubmit = async (e) => {
     e.preventDefault();
-    try {
-      console.log(heading, reviewText);
-      const config = {
-        headers: {
-          Authorization: `${token}`,
-        },
-      };
-      const response = await api.post(
-        "/create-blog",
-        { title: heading, content: reviewText },
-        config
-      );
+    try { 
+    console.log(heading,reviewText);
+    const config = {
+      headers: {
+        Authorization: `${token}`,
+      },
+    };  
+      const response = await api.post("/create-blog", { title: heading,content:reviewText},config);
 
       console.log("Review submitted successfully");
 
@@ -44,7 +37,17 @@ function Dashboard({ reviewsdata }) {
       setHeading("");
       setRefreshKey((prevKey) => prevKey + 1); // Increment the key to trigger a refresh
     } catch (error) {
+      // Handle errors (e.g., show an error message)
       console.error("Error submitting review:", error);
+      if (error) {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "You need to sign up/Log in to be able to contribute to discussion forum",
+          timer: 3000,
+          timerProgressBar: true,
+        });
+      }
     }
   };
 
@@ -54,8 +57,6 @@ function Dashboard({ reviewsdata }) {
     }
   }, [refreshKey]);
 
-  // console.log(reviewsdata);
-  // console.log(reviews);
   const filterItems = (title) => {
     if (title === "all") {
       setReviews(reviewsdata);
@@ -82,7 +83,7 @@ function Dashboard({ reviewsdata }) {
           })}
         </div>
         <form className="type-box-form">
-          <div className="type-box-div">
+          <div className="type-box-div" style={{margin:"0px"}}>
             <input
               type="text"
               className="type-topic"
@@ -101,12 +102,7 @@ function Dashboard({ reviewsdata }) {
               required
             />
           </div>
-          <button
-            type="submit"
-            id="Submit"
-            class="type-send"
-            onClick={handleReviewSubmit}
-          >
+          <button type="submit" id="Submit" class="send" style={{margin:"0px",fontSize:"1.5rem",border:"none",boxShadow:"none"}} onClick={handleReviewSubmit}>
             <AiOutlineSend color="black" />
           </button>
         </form>
